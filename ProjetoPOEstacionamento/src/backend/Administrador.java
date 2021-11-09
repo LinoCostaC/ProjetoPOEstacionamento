@@ -1,5 +1,5 @@
 
-package projetopoestacionamento;
+package backend;
 
 import java.io.Serializable;
 
