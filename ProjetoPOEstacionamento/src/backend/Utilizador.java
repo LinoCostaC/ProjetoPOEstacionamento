@@ -3,9 +3,9 @@ package backend;
 import java.io.Serializable;
 
 public class Utilizador implements Serializable {
-    private String username; 
-    private String password; 
-     private String nome; 
+    protected  String username; 
+    protected  String password; 
+    protected  String nome; 
     
 
     public Utilizador (String username, String password, String nome) {
@@ -35,4 +35,12 @@ public class Utilizador implements Serializable {
     public String getnome () {
     return nome;
 }   
+    
+    
+    @Override
+    public String toString () {
+        return "Username: " + username + "\n Password: " + password + "\n Nome: " + nome;
+    }
+    
+    
 }
