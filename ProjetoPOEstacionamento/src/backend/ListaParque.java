@@ -1,14 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package backend;
 
-/**
- *
- * @author bruno
- */
-public class ListaParques {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+
+//Lista de Parques
+public class ListaParque implements Serializable {
+    private ArrayList<Parque> listaParque;
+    
+    //Construtor
+    public ListaParque() {
+        listaParque = new ArrayList<Parque>();
+    }
+
+    public ArrayList<Parque> getListaParque() {
+        return listaParque;
+    }
+
+    public void setListaparque(ArrayList<Parque> listaParque) {
+        this.listaParque = listaParque;
+    }
+    
+    
+    //Obter todos os parques
+    public int getTotalParques() {
+        return listaParque.size();
+    }
+    
+    public Parque get(int index) {
+        return listaParque.get(index);
+    }
+
+    //Adicionar um utente à lista
+    public void adicionarParque(Parque parque) {
+        listaParque.add(parque);
+    }
+
+    //Remover um utente da lista
+    public void removerParque(Parque parque) {
+        listaParque.remove(parque);
+    }
     
 }
