@@ -32,12 +32,12 @@ public class ListaParque implements Serializable {
         return listaParque.get(index);
     }
 
-    //Adicionar um utente à lista
+    //Adicionar um parque à lista
     public void adicionarParque(Parque parque) {
         listaParque.add(parque);
     }
 
-    //Remover um utente da lista
+    //Remover um parque da lista
     public void removerParque(Parque parque) {
         listaParque.remove(parque);
     }

@@ -5,7 +5,7 @@ public class Parque {
     
 // variaveis de instacia
     
-    private String nome;
+    private String nomeParque;
     private int numeroLugares;
     private String tipoParque;
     
@@ -15,19 +15,19 @@ public class Parque {
     }
 
     public Parque(String nome, int numeroLugares, String tipoParque) {
-        this.nome = nome;
+        this.nomeParque = nome;
         this.numeroLugares = numeroLugares;
         this.tipoParque = tipoParque;
     }
     
 //get e set de nome
     
-    public String getNome() {
-        return nome;
+    public String getNomeParque() {
+        return nomeParque;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeParque(String nome) {
+        this.nomeParque = nome;
     }
 
 //get e set numeroLugares
@@ -50,4 +50,9 @@ public class Parque {
         this.tipoParque = tipoParque;
     }
     
+    //Método ToString
+    @Override
+    public String toString() {
+        return super.toString() + "Nome Parque=" + nomeParque + ", Numero de lugares=" + numeroLugares + ", Tipo de Parque=" + tipoParque + '}';
+    }
 }

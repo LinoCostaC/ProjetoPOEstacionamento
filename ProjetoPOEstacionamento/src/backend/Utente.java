@@ -18,44 +18,62 @@ public class Utente extends Utilizador implements Serializable {
         
     }
     
-    //Getters e Setters
-    public String getUsernameUtente() {
+     //Getters e Setters
+    
+    public String getUsernameUtente(){
         return username;
     }
     
-    public String getPasswordUtente() {
+    public void setUsernameUtente(String username){
+        this.username = username;
+    }
+    
+    public String getPasswordUtente(){
         return password;
     }
     
-    public String getNomeUtente() {
-        return nome;
-    }
-    
-    public int getContactoTelefonicoUtente() {
-        return contactoTelefonico;
-    }
-
-    public void setUsernameUtente(String username) {
-        this.username = username;
-    } 
-    
-    public void setPasswordUtente(String password) {
+    public void setPasswordUtente(String password){
         this.password = password;
     }
     
-    public void setNomeUtente(String nome) {
+    public String getNomeUtente(){
+        return nome;
+    }
+    
+    public void setNomeUtente(String nome){
         this.nome = nome;
     }
     
-    public void setContactoTelefonicoUtente(int contactoTelefonico) {
+    public int getContactoTelefonico() {
+        return contactoTelefonico;
+    }
+
+    public void setContactoTelefonico(int contactoTelefonico) {    
         this.contactoTelefonico = contactoTelefonico;
     }
 
+    public Viatura getViaturaUtente() {
+        return viaturaUtente;
+    }
+
+    public void setViaturaUtente(Viatura viaturaUtente) {
+        this.viaturaUtente = viaturaUtente;
+    }
+
+    public PedidoAcesso getPedidoAcesso() {
+        return pedidoAcesso;
+    }
+
+    public void setPedidoAcesso(PedidoAcesso pedidoAcesso) {
+        this.pedidoAcesso = pedidoAcesso;
+    }
+
+    
     
     //Método ToString
     @Override
     public String toString() {
-        return super.toString() + ", Contacto Telefónico=" + contactoTelefonico +'}';
+        return super.toString() + "Contacto Telefónico=" + contactoTelefonico + ", Viatura do Utente=" + viaturaUtente + ", Pedido de Acesso=" + pedidoAcesso + '}';
     }
 
     

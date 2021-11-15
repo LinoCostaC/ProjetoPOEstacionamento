@@ -62,4 +62,9 @@ public class Viatura {
         this.combustivel = combustivel;
     }
     
+    //Método ToString
+    @Override
+    public String toString() {
+        return super.toString() + "Matricula=" + matricula + ", Marca=" + marca + ", Modelo=" + modelo + ", Combustivel=" + combustivel + '}';
+    }
 }

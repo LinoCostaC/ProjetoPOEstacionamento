@@ -5,15 +5,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 //Lista de Segurancas
-public class ListaSegurancas implements Serializable {
+public class ListaSeguranca implements Serializable {
     private ArrayList<Seguranca> listaSeguranca;
     
     //Construtor
-    public ListaSegurancas() {
+    public ListaSeguranca() {
         listaSeguranca = new ArrayList<Seguranca>();
     }
 
-    public ListaSegurancas(ArrayList<Seguranca> listaSeguranca) {
+    public ListaSeguranca(ArrayList<Seguranca> listaSeguranca) {
         this.listaSeguranca = listaSeguranca;
     }
 

@@ -5,16 +5,16 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class ListaViaturas implements Serializable {
+public class ListaViatura implements Serializable {
     //Lista de Viaturas
     private ArrayList<Viatura> listaViatura;
     
     //Construtor
-    public ListaViaturas() {
+    public ListaViatura() {
         listaViatura = new ArrayList<Viatura>();
     }
 
-    public ListaViaturas(ArrayList<Seguranca> listaSeguranca) {
+    public ListaViatura(ArrayList<Seguranca> listaSeguranca) {
         this.listaViatura = listaViatura;
     }
 

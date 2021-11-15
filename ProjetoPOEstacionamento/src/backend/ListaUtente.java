@@ -5,11 +5,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 //Lista de Utentes
-public class ListaUtentes implements Serializable {
+public class ListaUtente implements Serializable {
     private ArrayList<Utente> listaUtente;
     
     //Construtor
-    public ListaUtentes() {
+    public ListaUtente() {
         listaUtente = new ArrayList<Utente>();
     }
 
