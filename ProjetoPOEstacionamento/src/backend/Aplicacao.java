@@ -23,7 +23,7 @@ public class Aplicacao implements Serializable {
         
     }
     
-    
+    //Getters
     public Utilizador getUtilizadorLigado(){
         return utilizadorLigado;
     }
@@ -62,6 +62,13 @@ public class Aplicacao implements Serializable {
             }
         }
         return false;
+    }
+    
+    //terminar 
+    public void terminar() {
+
+        System.exit(0);
+
     }
     
     
