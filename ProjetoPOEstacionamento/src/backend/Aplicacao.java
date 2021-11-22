@@ -9,13 +9,15 @@ public class Aplicacao implements Serializable {
     private ListaParque listaParque;
     private ListaUtilizador listaUtilizador;
     private ListaViatura listaViatura;
-    // lista de entradas e saidas 
+    private ListaEntradaSaida listaEntradaSaida;
+    private ListaPedidoAcesso listaPedidoAcesso;
 
     public Aplicacao() {
         listaParque = new ListaParque();
         listaUtilizador = new ListaUtilizador();
         listaViatura = new ListaViatura();
-
+        listaEntradaSaida= new ListaEntradaSaida();
+        listaPedidoAcesso= new ListaPedidoAcesso();
     }
 
     //Getters
@@ -37,6 +39,22 @@ public class Aplicacao implements Serializable {
 
     public ListaViatura getListaViatura() {
         return listaViatura;
+    }
+
+    public ListaEntradaSaida getListaEntradaSaida() {
+        return listaEntradaSaida;
+    }
+
+    public void setListaEntradaSaida(ListaEntradaSaida listaEntradaSaida) {
+        this.listaEntradaSaida = listaEntradaSaida;
+    }
+
+    public ListaPedidoAcesso getListaPedidoAcesso() {
+        return listaPedidoAcesso;
+    }
+
+    public void setListaPedidoAcesso(ListaPedidoAcesso listaPedidoAcesso) {
+        this.listaPedidoAcesso = listaPedidoAcesso;
     }
 
     //Autenticar utilizador 

@@ -9,6 +9,8 @@ public class EntradaSaida {
     // variaveis de instacia
     private LocalDateTime dataHoraEntrada;
     private LocalDateTime dataHoraSaida;
+    private Viatura viatura;
+    private Parque parque;
 
 
     public EntradaSaida() {
