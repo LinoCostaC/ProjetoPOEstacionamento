@@ -56,5 +56,10 @@ public class ListaViatura implements Serializable {
         }
         return null;
     }
+    
+    
+    
+    
+    //verifica
 }
 
