@@ -77,7 +77,7 @@ public class ListaUtilizador implements Serializable{
         } 
   }
       //verifica se existe um user no hashmap
-  public boolean existe(String username) {
+  public boolean existeUser(String username) {
       return repositorio.containsKey(username);
   }
   
