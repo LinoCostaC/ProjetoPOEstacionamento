@@ -14,10 +14,10 @@ public class Parque {
     public Parque() {
     }
 
-    public Parque(String nome, int numeroLugares, String tipoParque) {
+    public Parque(String nome, int numeroLugares) {
         this.nomeParque = nome;
         this.numeroLugares = numeroLugares;
-        this.tipoParque = tipoParque;
+        
     }
     
 //get e set de nome
@@ -40,15 +40,7 @@ public class Parque {
         this.numeroLugares = numeroLugares;
     }
 
-//get e set tipoParque
-    
-    public String getTipoParque() {
-        return tipoParque;
-    }
 
-    public void setTipoParque(String tipoParque) {
-        this.tipoParque = tipoParque;
-    }
     
     //Método ToString
     @Override
