@@ -60,6 +60,5 @@ public class ListaViatura implements Serializable {
     
     
     
-    //verifica
 }
 
