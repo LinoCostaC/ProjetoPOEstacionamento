@@ -16,11 +16,11 @@ public class ListaPedidoAcesso implements Serializable {
         return listaAcesso;
     }
 
-    public void setListaparque(ArrayList<Parque> listaParque) {
+    public void setListaAcesso(ArrayList<PedidoAcesso> listaAcesso) {
         this.listaAcesso = listaAcesso;
     }
 
-    //Obter todos os parques
+    //Obter todos os pedidos de acesso
     public int getTotalAcesso() {
         return listaAcesso.size();
     }
@@ -29,12 +29,12 @@ public class ListaPedidoAcesso implements Serializable {
         return listaAcesso.get(index);
     }
 
-    //Adicionar um parque à lista
+    //Adicionar um pedido de acesso à lista
     public void adicionarPedidoAcesso(PedidoAcesso acesso) {
         listaAcesso.add(acesso);
     }
 
-    //Remover um parque da lista
+    //Remover um pedido de acesso da lista
     public void removerPedidoAcesso(PedidoAcesso acesso) {
         listaAcesso.remove(acesso);
     }
