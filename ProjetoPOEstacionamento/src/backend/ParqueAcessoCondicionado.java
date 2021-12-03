@@ -5,7 +5,7 @@ package backend;
 public class ParqueAcessoCondicionado extends Parque {
     // variaveis de instacia
        private float preco;
-    private String tipoParque;
+       private String tipoParque;
     
      public ParqueAcessoCondicionado(String nome, int numeroLugares, String tipoParque, float preco) {
         super(nome, numeroLugares);

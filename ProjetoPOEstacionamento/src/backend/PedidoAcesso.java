@@ -47,4 +47,7 @@ public class PedidoAcesso {
     public String toString() {
         return super.toString() + " Estado=" + estadoPedido + ", Pedido de Parque=" + pedidoParque + ", Pedido do Utente=" + pedidoUtente + '}';
     }
+    
+    
+    
 }

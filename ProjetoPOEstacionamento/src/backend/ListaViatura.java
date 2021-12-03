@@ -57,6 +57,21 @@ public class ListaViatura implements Serializable {
         return null;
     }
     
+    //Método da percentagem de viaturas por combustível
+    public double getPercentagemCombustível(String combustivel){
+        double count = 0.0;
+        for (Viatura v : listaViatura){
+            if (v.getCombustivel().equals(combustivel)){
+              
+                count++;  
+            } 
+     
+        }
+       
+        double percentagem = count/getTotalViatura() * 100;
+        return percentagem;  
+    }
+    
     
     
     
