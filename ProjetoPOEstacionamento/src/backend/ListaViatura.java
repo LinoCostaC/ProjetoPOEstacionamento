@@ -69,7 +69,7 @@ public class ListaViatura implements Serializable {
         }
        
         double percentagem = count/getTotalViatura() * 100;
-        return percentagem;  
+        return percentagem; 
     }
     
     
