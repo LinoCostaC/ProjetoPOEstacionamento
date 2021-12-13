@@ -39,7 +39,8 @@ public class Parque {
     public void setNumeroLugares(int numeroLugares) {
         this.numeroLugares = numeroLugares;
     }
-
+    
+    
 
     
     //Método ToString
