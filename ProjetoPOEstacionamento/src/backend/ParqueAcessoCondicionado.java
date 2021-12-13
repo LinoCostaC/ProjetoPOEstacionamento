@@ -5,13 +5,10 @@ package backend;
 public class ParqueAcessoCondicionado extends Parque {
     // variaveis de instacia
        private float preco;
-       private String tipoParque;
        private final int lugaresMaximosCondicionado;
     
-     public ParqueAcessoCondicionado(String nome, int numeroLugares, String tipoParque, float preco) {
-        super(nome, numeroLugares);
-        this.tipoParque = tipoParque;
-        this.preco = preco;
+     public ParqueAcessoCondicionado(String nome, int numeroLugares, float preco) {
+        super(nome, numeroLugares, preco);
         lugaresMaximosCondicionado = 50;
         
     }
@@ -24,13 +21,7 @@ public class ParqueAcessoCondicionado extends Parque {
         this.preco = preco;
     }
 
-    public String getTipoParque() {
-        return tipoParque;
-    }
-
-    public void setTipoParque(String tipoParque) {
-        this.tipoParque = tipoParque;
-    }
+    
      
     
 }

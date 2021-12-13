@@ -7,16 +7,19 @@ public class Parque {
     
     private String nomeParque;
     private int numeroLugares;
-    private String tipoParque;
+    private float preco;
+    
     
 //construtores
     
     public Parque() {
     }
 
-    public Parque(String nome, int numeroLugares) {
+    public Parque(String nome, int numeroLugares, float preco) {
         this.nomeParque = nome;
         this.numeroLugares = numeroLugares;
+        this.preco = 0;
+        
         
     }
     
@@ -46,6 +49,6 @@ public class Parque {
     //Método ToString
     @Override
     public String toString() {
-        return super.toString() + "Nome Parque=" + nomeParque + ", Numero de lugares=" + numeroLugares + ", Tipo de Parque=" + tipoParque + '}';
+        return super.toString() + "Nome Parque=" + nomeParque + ", Numero de lugares=" + numeroLugares + '}';
     }
 }
