@@ -40,4 +40,20 @@ public class EntradaSaida {
         this.dataHoraSaida = dataHoraSaida;
     }
 
+    public Viatura getViatura() {
+        return viatura;
+    }
+
+    public void setViatura(Viatura viatura) {
+        this.viatura = viatura;
+    }
+
+    public Parque getParque() {
+        return parque;
+    }
+
+    public void setParque(Parque parque) {
+        this.parque = parque;
+    }
+
 }   
