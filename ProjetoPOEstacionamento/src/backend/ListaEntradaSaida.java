@@ -34,19 +34,27 @@ public class ListaEntradaSaida implements Serializable  {
         return listaEntradaSaida.get(index);
     }
 
-    //Adicionar uma entrada e saida à lista (Método Registar entrada de viatura)
+    //Regista entrada de viatura e adiciona à lista de EntradasSaidas
     public void adicionarEntradaSaida(Viatura viatura, Parque parque){
-        EntradaSaida entradasaida = new EntradaSaida(LocalDateTime.now(), viatura, parque);
+        EntradaSaida entradasaida = new EntradaSaida(LocalDateTime.now(), null, viatura, parque);
         listaEntradaSaida.add(entradasaida);
     }
 
-    //Remover uma entrda e saida da lista
+    //Remover uma entrada e saida da lista
     public void removerEntradaSaida(EntradaSaida entradasaida) {
         listaEntradaSaida.remove(entradasaida);
     }
     
-    //Registar a saída
-    
+    //Registar a saída de uma viatura
+    public void registarSaida(Viatura viatura){
+        for (EntradaSaida es: listaEntradaSaida){
+            if (es.getDataHoraSaida()== null && es.getViatura().equals(viatura)){
+                es.setDataHoraSaida(LocalDateTime.now());
+                break;
+            }
+        }
+           
+}
     
     /*Obter as viaturas que se encontram nas instalações
       A data de saída tem de ser nula (Viatura está no parque)
@@ -54,6 +62,7 @@ public class ListaEntradaSaida implements Serializable  {
       A data de saída não nula (Viatura saiu do parque)
       */
       
+    //Obter lista de viaturas que estão dentro das instalações
       public ArrayList<Viatura> viaturaInstalações(EntradaSaida dataHoraSaida){
           ArrayList<Viatura> listaViatura = new ArrayList<Viatura>();
           for (EntradaSaida es : listaEntradaSaida){
@@ -65,6 +74,10 @@ public class ListaEntradaSaida implements Serializable  {
                 return listaViatura;
       
     
-      } 
 }
+}
+      
+      
+      
+
 

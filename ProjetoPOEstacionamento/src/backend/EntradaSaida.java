@@ -17,7 +17,7 @@ public class EntradaSaida {
     
     }
 
-    public EntradaSaida(LocalDateTime dataHoraEntrada, Viatura v, Parque p) {
+    public EntradaSaida(LocalDateTime dataHoraEntrada, LocalDateTime dataHoraSaida, Viatura v, Parque p) {
         this.dataHoraEntrada = dataHoraEntrada;
         this.dataHoraSaida = null;
         this.viatura = v;
