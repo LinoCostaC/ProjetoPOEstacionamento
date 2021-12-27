@@ -7,7 +7,7 @@ public class Parque {
     
     private String nomeParque;
     private int numeroLugares;
-    private String tipoParque;
+    String tipoParque;
     
 //construtores
     
