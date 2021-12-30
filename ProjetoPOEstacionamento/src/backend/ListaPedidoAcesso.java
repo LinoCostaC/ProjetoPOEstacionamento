@@ -38,6 +38,50 @@ public class ListaPedidoAcesso implements Serializable {
     public void removerPedidoAcesso(PedidoAcesso acesso) {
         listaAcesso.remove(acesso);
     }
+    
+    public boolean existe(Utente utente) {
+        return listaAcesso.contains(utente);
+    }
+    
+   
+    public double calcularTotalAngariado() {
+        double somaTotal = 0;
+        for (PedidoAcesso pedido : listaAcesso) {
+            somaTotal += pedido.valorPagar(pedido);
+        }
+        return somaTotal;
+
+    }
+
+    public double calcularValorParqueLivre() {
+        double somaTotal = 0;
+        for (PedidoAcesso pedido : listaAcesso) {
+            if (pedido.getPedidoParque() instanceof ParqueAcessoLivre) {
+                somaTotal += pedido.valorPagar(pedido);
+            }
+        }
+        return somaTotal;
+    }
+
+    public double calcularValorLugarAssegurado() {
+        double somaTotal = 0;
+        for (PedidoAcesso pedido : listaAcesso) {
+            if (pedido.getPedidoParque() instanceof ParqueLugarAssegurado) {
+                somaTotal += pedido.valorPagar(pedido);
+            }
+        }
+        return somaTotal;
+    }
+
+    public double calcularValorParqueCondicionado() {
+        double somaTotal = 0;
+        for (PedidoAcesso pedido : listaAcesso) {
+            if (pedido.getPedidoParque() instanceof ParqueAcessoCondicionado) {
+                somaTotal += pedido.valorPagar(pedido);
+            }
+        }
+        return somaTotal;
+    }
 
 }
 

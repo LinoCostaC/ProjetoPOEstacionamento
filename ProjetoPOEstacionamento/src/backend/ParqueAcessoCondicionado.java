@@ -4,14 +4,10 @@ package backend;
 
 public class ParqueAcessoCondicionado extends Parque {
     // variaveis de instacia
-       private float preco;
+       private double preco;
        private final int lugaresMaximosCondicionado;
     
-
-    public ParqueAcessoCondicionado(String nome, int numeroLugares, String tipoParque, float preco) {
-        super(nome, numeroLugares);
-        this.preco = preco;
-    }    
+   
 
     public ParqueAcessoCondicionado(String nome, int numeroLugares, float preco) {
         super(nome, numeroLugares, preco);
@@ -20,11 +16,12 @@ public class ParqueAcessoCondicionado extends Parque {
         
     }
 
-    public float getPreco() {
+
+    public double getPreco() {
         return preco;
     }
 
-    public void setPreco(float preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 
@@ -36,8 +33,7 @@ public class ParqueAcessoCondicionado extends Parque {
     public void setTipoParque(String tipoParque) {
         this.tipoParque = tipoParque;
 }
-            
-    
+
 }
             
 

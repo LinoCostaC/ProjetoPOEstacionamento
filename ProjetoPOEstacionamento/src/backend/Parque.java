@@ -8,7 +8,7 @@ public class Parque {
     private String nomeParque;
     private int numeroLugares;
     String tipoParque;
-    private float preco;
+    private double preco;
 //construtores
     
     public Parque() {
@@ -17,7 +17,8 @@ public class Parque {
     public Parque(String nome, int numeroLugares, float preco) {
         this.nomeParque = nome;
         this.numeroLugares = numeroLugares;
-        this.preco = 0;        
+        this.preco = preco;    
+        
     }
     
 //get e set de nome
@@ -39,7 +40,15 @@ public class Parque {
     public void setNumeroLugares(int numeroLugares) {
         this.numeroLugares = numeroLugares;
     }
+
+//get e set preco
+    public double getPreco() {
+        return preco;
+    }
     
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
     
 
     
