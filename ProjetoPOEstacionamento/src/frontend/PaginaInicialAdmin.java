@@ -1,9 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package frontend;
+
+import BaseDeDados.Serializacao;
+import backend.Aplicacao;
+import backend.ListaUtilizador;
+import backend.Parque;
+import backend.Seguranca;
+import backend.Utilizador;
+import backend.Viatura;
+import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 /**
  *
@@ -11,11 +17,69 @@ package frontend;
  */
 public class PaginaInicialAdmin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PaginaInicialAdmin
-     */
-    public PaginaInicialAdmin() {
+    private Aplicacao aplicacao;
+    private Serializacao database;
+    private ListaUtilizador listaUtilizador;
+    private Parque parque;
+    private Utilizador utilizador;
+    private Seguranca seguranca;
+    private Viatura viatura;
+    private ModeloTabelaUtilizadores modeloTabelaUtilizadores;
+    private ModeloTabelaParque modeloTabelaParque;
+    private ModeloTabelaViatura modeloTabelaViatura;
+    private ModeloTabelaListaViatura modeloTabelaListaViatura;
+    
+    
+    public PaginaInicialAdmin(Aplicacao aplicacao, Serializacao database) {
         initComponents();
+        this.database = database;
+        this.aplicacao = aplicacao;
+        
+        setTitle("Página Inicial Admnistrador");
+        
+        //Não permite o redimensionamento da janela
+        this.setResizable(false);
+        
+        //Mostra a centralização da janela
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        
+        ModeloTabelaUtilizadores = new ModeloTabelaUtilizadores(aplicacao.getListaUtilizador());
+        tabelaGestores.setModel(modeloTabelaGestores);
+        
+        modeloTabelaCentros = new ModeloTabelaCentroVacinacao(sistema.getListaCentro());
+        tabelaCentro.setModel(modeloTabelaCentros);
+        
+        modeloTabelaVacina = new ModeloTabelaVacina(sistema, sistema.getListaCentro());
+        tabelaVacina.setModel(modeloTabelaVacina);
+        
+        modeloTabelaVacina = new ModeloTabelaVacina(sistema, sistema.getListaCentro());
+        tabelaVacina.setModel(modeloTabelaVacina);
+        
+        modeloTabelaListaVacina = new ModeloTabelaListaVacina(sistema.getListaVacina());
+        tabelaListaVacina.setModel(modeloTabelaListaVacina);
+        
+    }    
+    
+      
+     private void guardar() {
+        database.guardar(sistema);
+    }
+    
+    
+    
+    
+    
+    
+    
+    private void terminar() {
+        if (JOptionPane.showConfirmDialog(null,
+                "Deseja realmente terminar o programa?",
+                "Terminar",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            guardar();
+            aplicacao.terminar();
+        }
     }
 
     /**
@@ -27,21 +91,106 @@ public class PaginaInicialAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        btMudarUtilizador = new javax.swing.JButton();
+        botaoTerminar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaGestores = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
+        jLabel1.setText("Administrador");
+        jLabel1.setMaximumSize(new java.awt.Dimension(174, 34));
+        jLabel1.setMinimumSize(new java.awt.Dimension(174, 34));
+        jLabel1.setPreferredSize(new java.awt.Dimension(174, 34));
+
+        btMudarUtilizador.setBackground(new java.awt.Color(255, 255, 255));
+        btMudarUtilizador.setFont(new java.awt.Font("Rockwell", 1, 12)); // NOI18N
+        btMudarUtilizador.setText("Mudar Utilizador");
+        btMudarUtilizador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btMudarUtilizadorActionPerformed(evt);
+            }
+        });
+
+        botaoTerminar.setBackground(new java.awt.Color(255, 255, 255));
+        botaoTerminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        botaoTerminar.setText("Terminar");
+        botaoTerminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoTerminarActionPerformed(evt);
+            }
+        });
+
+        tabelaGestores.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Username", "Password", "Nome"
+            }
+        ));
+        tabelaGestores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaGestoresMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tabelaGestores);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                        .addComponent(btMudarUtilizador, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(botaoTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(43, 43, 43))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btMudarUtilizador, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botaoTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btMudarUtilizadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMudarUtilizadorActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "Deseja realmente mudar de utilizador?", "A mudar...", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            guardar();
+            dispose();
+            Login jl = new Login(aplicacao, database);
+            jl.setLocationRelativeTo(null);
+            jl.setVisible(true);
+        }
+    }//GEN-LAST:event_btMudarUtilizadorActionPerformed
+
+    private void botaoTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoTerminarActionPerformed
+        terminar();
+    }//GEN-LAST:event_botaoTerminarActionPerformed
+
+    private void tabelaGestoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaGestoresMouseClicked
+
+    }//GEN-LAST:event_tabelaGestoresMouseClicked
 
     /**
      * @param args the command line arguments
@@ -79,5 +228,10 @@ public class PaginaInicialAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoTerminar;
+    private javax.swing.JButton btMudarUtilizador;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tabelaGestores;
     // End of variables declaration//GEN-END:variables
 }

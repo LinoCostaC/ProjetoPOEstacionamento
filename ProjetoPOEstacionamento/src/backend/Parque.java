@@ -7,7 +7,7 @@ public class Parque {
     
     private String nomeParque;
     private int numeroLugares;
-    String tipoParque;
+    
     private float preco;
 //construtores
     
@@ -19,6 +19,7 @@ public class Parque {
         this.numeroLugares = numeroLugares;
         this.preco = 0;        
     }
+
     
 //get e set de nome
     
@@ -40,12 +41,20 @@ public class Parque {
         this.numeroLugares = numeroLugares;
     }
     
+    public float getPreco() {
+        return preco;
+    }
+
+    public void setPreco(float preco) {
+        this.preco = preco;
+    }
+    
     
 
     
     //Método ToString
     @Override
     public String toString() {
-        return super.toString() + "Nome Parque=" + nomeParque + ", Numero de lugares=" + numeroLugares + '}';
+        return super.toString() + "Nome Parque=" + nomeParque + ", Numero de lugares=" + numeroLugares + ", Preco=" + '}';
     }
 }

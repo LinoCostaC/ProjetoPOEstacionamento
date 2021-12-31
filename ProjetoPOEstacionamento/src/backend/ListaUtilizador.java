@@ -12,6 +12,8 @@ public class ListaUtilizador implements Serializable{
         public ListaUtilizador() {
         this.repositorio = new HashMap<>();
         }
+
+   
  //erro se nao existir ao remover
     public class UtilizadorNaoExistenteException extends Exception {
         public UtilizadorNaoExistenteException() { }

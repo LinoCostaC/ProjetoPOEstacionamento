@@ -8,7 +8,11 @@ package frontend;
 import BaseDeDados.Serializacao;
 import backend.Administrador;
 import backend.Aplicacao;
+import backend.ListaParque;
+import backend.Parque;
+import backend.Seguranca;
 import backend.Utente;
+import backend.Viatura;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,7 +34,63 @@ public class Login extends javax.swing.JFrame {
          //Mostrar a janela centralizada
          this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        
+        private void autenticar() {
+        if (tfUsername.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Introduza o username!");
+            tfUsername.requestFocus();
+            return;
+        }
+
+        if (pfPassword.getPassword().length == 0) {
+            JOptionPane.showMessageDialog(this, "Introduza  a password!");
+            pfPassword.requestFocus();
+            return;
+        }
+
+        if (!aplicacao.autenticarUser(tfUsername.getText(), new String(pfPassword.getPassword()))) {
+            JOptionPane.showMessageDialog(this, "Dados inválidos.",
+                    "Autenticação", JOptionPane.WARNING_MESSAGE);
+            tfUsername.requestFocus();
+        } else {
+            //Devolve o controlo da aplicação para o método main
+            dispose();
+            
+            //Mostra a página se o utilizador for um Admin
+            if (aplicacao.getUtilizadorLigado() instanceof Administrador) {
+                PaginaInicialAdmin pia = new PaginaInicialAdmin(aplicacao, database);
+                pia.setLocationRelativeTo(null);
+                pia.setVisible(true);
+            } else {
+
+                //Mostra a página se o utilizador for um Seguranca
+                if (aplicacao.getUtilizadorLigado() instanceof Seguranca) {
+                    try {
+                        Parque parque = aplicacao.getListaParque();
+                        PaginaInicialSeguranca pis = new PaginaInicialSeguranca(aplicacao,parque, database);
+                        pis.setLocationRelativeTo(null);
+                        pis.setVisible(true);
+                    } catch (Exception e) {
+                        Parque parque = null;
+                        PaginaInicialSeguranca pis = new PaginaInicialSeguranca(aplicacao,parque, database);
+                        pis.setLocationRelativeTo(null);
+                        pis.setVisible(true);
+                    }
+                } else {
+                    //Mostra a página se o utilizador for um User normal (Utente)
+                    if (aplicacao.getUtilizadorLigado()instanceof Utente) {
+                        Utente u = (Utente) aplicacao.getUtilizadorLigado();
+                        Viatura viatura = u.getViaturaUtente();
+                        PaginaInicialUser piu = new PaginaInicialUser(aplicacao,viatura, database);
+                        piu.setLocationRelativeTo(null);
+                        piu.setVisible(true);
+                    }
+                }
+
+            }
+        }
     }
+    
      
      private void terminar() {
         if (JOptionPane.showConfirmDialog(null,

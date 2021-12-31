@@ -8,11 +8,6 @@ public class ParqueAcessoCondicionado extends Parque {
        private final int lugaresMaximosCondicionado;
     
 
-    public ParqueAcessoCondicionado(String nome, int numeroLugares, String tipoParque, float preco) {
-        super(nome, numeroLugares);
-        this.preco = preco;
-    }    
-
     public ParqueAcessoCondicionado(String nome, int numeroLugares, float preco) {
         super(nome, numeroLugares, preco);
 
@@ -29,13 +24,7 @@ public class ParqueAcessoCondicionado extends Parque {
     }
 
    
-    public String getTipoParque() {
-        return tipoParque;
-    }
     
-    public void setTipoParque(String tipoParque) {
-        this.tipoParque = tipoParque;
-}
             
     
 }
