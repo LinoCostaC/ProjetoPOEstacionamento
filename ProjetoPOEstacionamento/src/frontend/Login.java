@@ -35,63 +35,29 @@ public class Login extends javax.swing.JFrame {
          this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         
-        private void autenticar() {
+    private void autenticar() {                
         if (txtUsername.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Introduza o username!");
+            JOptionPane.showMessageDialog(this, "Introduza o seu username!");            
             txtUsername.requestFocus();
             return;
         }
-
+        
         if (pfPassword.getPassword().length == 0) {
-            JOptionPane.showMessageDialog(this, "Introduza  a password!");
+            JOptionPane.showMessageDialog(this, "Introduza a sua password!");
             pfPassword.requestFocus();
             return;
-        }
-
-        if (!aplicacao.autenticarUser(txtUsername.getText(), new String(pfPassword.getPassword()))) {
-            JOptionPane.showMessageDialog(this, "Dados inválidos.",
-                    "Autenticação", JOptionPane.WARNING_MESSAGE);
-            txtUsername.requestFocus();
-        } else {
+        }                              
+        
+        if (!aplicacao.autenticarUser(txtUsername.getText(), new String(pfPassword.getPassword()))){
+            JOptionPane.showMessageDialog(this, "As credenciais introduzidas não correspondem a um utilizador válido.",
+                     "Autenticação", JOptionPane.WARNING_MESSAGE);
+            txtUsername.requestFocus();            
+        }else{
             //Devolve o controlo da aplicação para o método main
-            dispose();
-            
-            //Mostra a página se o utilizador for um Admin
-            if (aplicacao.getUtilizadorLigado() instanceof Administrador) {
-                PaginaInicialAdmin pia = new PaginaInicialAdmin(aplicacao, database);
-                pia.setLocationRelativeTo(null);
-                pia.setVisible(true);
-            } else {
-
-                //Mostra a página se o utilizador for um Seguranca
-                if (aplicacao.getUtilizadorLigado() instanceof Seguranca) {
-                    try {
-                        Parque parque = aplicacao.getListaParque();
-                        PaginaInicialSeguranca pis = new PaginaInicialSeguranca(aplicacao,parque, database);
-                        pis.setLocationRelativeTo(null);
-                        pis.setVisible(true);
-                    } catch (Exception e) {
-                        Parque parque = null;
-                        PaginaInicialSeguranca pis = new PaginaInicialSeguranca(aplicacao,parque, database);
-                        pis.setLocationRelativeTo(null);
-                        pis.setVisible(true);
-                    }
-                } else {
-                    //Mostra a página se o utilizador for um User normal (Utente)
-                    if (aplicacao.getUtilizadorLigado()instanceof Utente) {
-                        Utente u = (Utente) aplicacao.getUtilizadorLigado();
-                        Viatura viatura = u.getViaturaUtente();
-                        PaginaInicialUser piu = new PaginaInicialUser(aplicacao,viatura, database);
-                        piu.setLocationRelativeTo(null);
-                        piu.setVisible(true);
-                    }
-                }
-
-            }
-        }
-    }
-    
-     
+            dispose();            
+        }               
+    }      
+        
      private void terminar() {
         if (JOptionPane.showConfirmDialog(null,
                 "Tem a certeza que pretende terminar o programa?",
