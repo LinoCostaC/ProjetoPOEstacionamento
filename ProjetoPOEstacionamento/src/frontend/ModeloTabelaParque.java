@@ -54,8 +54,9 @@ public class ModeloTabelaParque extends AbstractTableModel {
             case 2:
                 return p.getPreco();
             
-        
-    }
+       }
+        return null;
     
 
+}
 }

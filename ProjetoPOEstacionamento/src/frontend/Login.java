@@ -36,9 +36,9 @@ public class Login extends javax.swing.JFrame {
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         
         private void autenticar() {
-        if (tfUsername.getText().isEmpty()) {
+        if (txtUsername.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Introduza o username!");
-            tfUsername.requestFocus();
+            txtUsername.requestFocus();
             return;
         }
 
@@ -48,10 +48,10 @@ public class Login extends javax.swing.JFrame {
             return;
         }
 
-        if (!aplicacao.autenticarUser(tfUsername.getText(), new String(pfPassword.getPassword()))) {
+        if (!aplicacao.autenticarUser(txtUsername.getText(), new String(pfPassword.getPassword()))) {
             JOptionPane.showMessageDialog(this, "Dados inválidos.",
                     "Autenticação", JOptionPane.WARNING_MESSAGE);
-            tfUsername.requestFocus();
+            txtUsername.requestFocus();
         } else {
             //Devolve o controlo da aplicação para o método main
             dispose();
@@ -111,7 +111,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tfUsername = new javax.swing.JTextField();
+        txtUsername = new javax.swing.JTextField();
         jlUsername = new javax.swing.JLabel();
         jlPassword = new javax.swing.JLabel();
         cbMostrarPassword = new javax.swing.JCheckBox();
@@ -185,7 +185,7 @@ public class Login extends javax.swing.JFrame {
                                     .addComponent(jlPassword))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tfUsername)
+                                    .addComponent(txtUsername)
                                     .addComponent(pfPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE))))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jbRegistar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
@@ -201,7 +201,7 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jlLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlUsername))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -283,6 +283,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jlPassword;
     private javax.swing.JLabel jlUsername;
     private javax.swing.JPasswordField pfPassword;
-    private javax.swing.JTextField tfUsername;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
