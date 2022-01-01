@@ -56,11 +56,6 @@ public class ListaEntradaSaida implements Serializable  {
            
 }
     
-    /*Obter as viaturas que se encontram nas instalações
-      A data de saída tem de ser nula (Viatura está no parque)
-      A data de entrada não nula (Viatura entrou no parque)
-      A data de saída não nula (Viatura saiu do parque)
-      */
       
     //Obter lista de viaturas que estão dentro das instalações
       public ArrayList<Viatura> viaturaInstalações(EntradaSaida dataHoraSaida){

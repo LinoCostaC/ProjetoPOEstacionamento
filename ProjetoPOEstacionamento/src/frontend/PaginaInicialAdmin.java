@@ -24,10 +24,11 @@ public class PaginaInicialAdmin extends javax.swing.JFrame {
     private Utilizador utilizador;
     private Seguranca seguranca;
     private Viatura viatura;
-    private ModeloTabelaUtilizadores modeloTabelaUtilizadores;
-    private ModeloTabelaParque modeloTabelaParque;
-    private ModeloTabelaViatura modeloTabelaViatura;
-    private ModeloTabelaListaViatura modeloTabelaListaViatura;
+    //private ModeloTabelaUtilizadores modeloTabelaUtilizadores;
+    
+    
+    public PaginaInicialAdmin() {
+    }
     
     
     public PaginaInicialAdmin(Aplicacao aplicacao, Serializacao database) {
@@ -44,20 +45,10 @@ public class PaginaInicialAdmin extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         
-        ModeloTabelaUtilizadores = new ModeloTabelaUtilizadores(aplicacao.getListaUtilizador());
-        tabelaSeguranca.setModel(modeloTabelaGestores);
+       // ModeloTabelaUtilizadores = new ModeloTabelaUtilizadores(aplicacao.getListaUtilizador());
+       // tabelaSeguranca.setModel(modeloTabelaSegurancas);
         
-        modeloTabelaCentros = new ModeloTabelaCentroVacinacao(sistema.getListaCentro());
-        tabelaCentro.setModel(modeloTabelaCentros);
         
-        modeloTabelaVacina = new ModeloTabelaVacina(sistema, sistema.getListaCentro());
-        tabelaVacina.setModel(modeloTabelaVacina);
-        
-        modeloTabelaVacina = new ModeloTabelaVacina(sistema, sistema.getListaCentro());
-        tabelaVacina.setModel(modeloTabelaVacina);
-        
-        modeloTabelaListaVacina = new ModeloTabelaListaVacina(sistema.getListaVacina());
-        tabelaListaVacina.setModel(modeloTabelaListaVacina);
         
     }    
     
