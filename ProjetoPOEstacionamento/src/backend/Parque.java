@@ -7,7 +7,6 @@ public class Parque {
     
     private String nomeParque;
     private int numeroLugares;
-    
     private float preco;
 //construtores
     
@@ -17,7 +16,7 @@ public class Parque {
     public Parque(String nome, int numeroLugares, float preco) {
         this.nomeParque = nome;
         this.numeroLugares = numeroLugares;
-        this.preco = 0;        
+        this.preco = preco;        
     }
 
     

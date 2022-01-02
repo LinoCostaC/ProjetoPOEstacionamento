@@ -5,24 +5,24 @@ package backend;
 public class PedidoAcesso {
     //variaveis de instancia
     
-    private String estadoPedido;
+    private Estado estadoPedido;
     private Parque pedidoParque;
     private Utente pedidoUtente;
     
 //construtores
     
-    public PedidoAcesso() {
+    public PedidoAcesso(Estado estadoPedido, Utente pedidoUtente, Parque pedidoParque) {
+        this.pedidoUtente = pedidoUtente;
+        this.pedidoParque = pedidoParque;
+        estadoPedido = Estado.PENDENTE;
     }
+   
 
-    public PedidoAcesso(String estado) {
-        this.estadoPedido = estado;
-    }
-
-    public String getEstado() {
+    public Estado getEstado() {
         return estadoPedido;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(Estado estado) {
         this.estadoPedido = estado;
     }
 
@@ -41,13 +41,13 @@ public class PedidoAcesso {
     public void setPedidoUtente(Utente pedidoUtente) {
         this.pedidoUtente = pedidoUtente;
     }
-    
-    //Método ToString
-    @Override
-    public String toString() {
-        return super.toString() + " Estado=" + estadoPedido + ", Pedido de Parque=" + pedidoParque + ", Pedido do Utente=" + pedidoUtente + '}';
+     public double valorPagar(PedidoAcesso pedido){
+        if(!estadoPedido.equals(Estado.ATRIBUIDO)){
+            return 0;
+        } else {
+            return pedidoParque.getPreco();
+        }
     }
-    
     
     
 }

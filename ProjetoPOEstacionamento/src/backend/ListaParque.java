@@ -41,5 +41,7 @@ public class ListaParque implements Serializable {
     public void removerParque(Parque parque) {
         listaParque.remove(parque);
     }
-    
+    public int size() {
+        return listaParque.size();
+}
 }
