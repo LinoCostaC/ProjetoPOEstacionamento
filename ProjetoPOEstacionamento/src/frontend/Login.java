@@ -6,58 +6,90 @@
 package frontend;
 
 import BaseDeDados.Serializacao;
+import backend.ListaUtilizador;
 import backend.Administrador;
 import backend.Aplicacao;
 import backend.ListaParque;
 import backend.Parque;
 import backend.Seguranca;
 import backend.Utente;
-import backend.Viatura;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 /**
  *
  * @author LC
  */
 public class Login extends javax.swing.JFrame {
-
     private Aplicacao aplicacao;
     private Serializacao database;
+    private String usern; 
+    private String showusern; 
+    private String passw;
+    private String showpassw;
     
      
-     public Login() {
+     public Login(Aplicacao apli ,Serializacao database) {
         initComponents();
-        this.aplicacao = aplicacao;
-         this.database=database;
+        this.aplicacao = apli;
+        this.database = database;
          //Para manter o dimensionamento da janela
          this.setResizable(false);
          //Mostrar a janela centralizada
          this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+     }
         
-    private void autenticar() {                
+        private void login() {                
+        
         if (txtUsername.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Introduza o seu username!");            
+            JOptionPane.showMessageDialog(this, "Introduza o nome de utilizador!");            
             txtUsername.requestFocus();
             return;
         }
         
         if (pfPassword.getPassword().length == 0) {
-            JOptionPane.showMessageDialog(this, "Introduza a sua password!");
+            JOptionPane.showMessageDialog(this, "Introduza a password!");
             pfPassword.requestFocus();
             return;
-        }                              
+        } 
         
-        if (!aplicacao.autenticarUser(txtUsername.getText(), new String(pfPassword.getPassword()))){
-            JOptionPane.showMessageDialog(this, "As credenciais introduzidas não correspondem a um utilizador válido.",
-                     "Autenticação", JOptionPane.WARNING_MESSAGE);
+            usern = txtUsername.getText() ;
+            showusern = usern.replaceAll("\\s+$", "");
+            passw = new String (pfPassword.getPassword());
+            showpassw = passw.replaceAll("\\s+$", "");
+        
+        
+        if (!aplicacao.autenticarUser(showusern, showpassw)){
+            JOptionPane.showMessageDialog(this, "Credenciais inválidas!");
             txtUsername.requestFocus();            
         }else{
-            //Devolve o controlo da aplicação para o método main
-            dispose();            
+            aplicacao.autenticarUser(showusern, showpassw);
+            if (aplicacao.utilizadorLigado instanceof Utente) {
+                UtenteGUI principal= new UtenteGUI(aplicacao,database);
+                principal.setVisible(true);
+            }
+            
+            if (aplicacao.utilizadorLigado instanceof Administrador) {
+                
+                AdminGUI principal = new AdminGUI(aplicacao,database);
+                principal.setVisible(true);
+            }
+            
+            if (aplicacao.utilizadorLigado instanceof Seguranca) {
+                
+                SegurancaGUI principal= new SegurancaGUI(aplicacao,database);
+                principal.setVisible(true);
+            }
+            JOptionPane.showMessageDialog(null, "Utilizador logado com sucesso"); 
+            
+            
+            this.dispose();            
         }               
-    }      
-        
+    } 
+   
      private void terminar() {
         if (JOptionPane.showConfirmDialog(null,
                 "Tem a certeza que pretende terminar o programa?",
@@ -89,6 +121,12 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        txtUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsernameActionPerformed(evt);
+            }
+        });
+
         jlUsername.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jlUsername.setText("Username");
 
@@ -107,6 +145,11 @@ public class Login extends javax.swing.JFrame {
 
         jbEntrar.setFont(new java.awt.Font("Dubai", 0, 14)); // NOI18N
         jbEntrar.setText("Entrar");
+        jbEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEntrarActionPerformed(evt);
+            }
+        });
 
         jbSair.setFont(new java.awt.Font("Dubai", 0, 14)); // NOI18N
         jbSair.setText("Sair");
@@ -194,7 +237,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_cbMostrarPasswordActionPerformed
 
     private void jbRegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegistarActionPerformed
-    
+    RegistarUser janela = new RegistarUser(aplicacao, database);
+    janela.setVisible(true);
+    dispose();
     }//GEN-LAST:event_jbRegistarActionPerformed
 
     private void pfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfPasswordActionPerformed
@@ -205,40 +250,14 @@ public class Login extends javax.swing.JFrame {
         terminar();
     }//GEN-LAST:event_jbSairActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsernameActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
-        });
-    }
+    private void jbEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntrarActionPerformed
+    login(); // TODO add your handling code here:
+    }//GEN-LAST:event_jbEntrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox cbMostrarPassword;

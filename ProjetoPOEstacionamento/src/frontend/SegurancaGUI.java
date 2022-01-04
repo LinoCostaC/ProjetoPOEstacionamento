@@ -20,15 +20,18 @@ import java.util.ArrayList;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 
-public class PaginaInicialSeguranca extends javax.swing.JFrame {
+public class SegurancaGUI extends javax.swing.JFrame {
+    private Aplicacao aplicacao;
+    private Seguranca segurancaligado;
+    Serializacao serializacao;
 
     
-    public PaginaInicialSeguranca() {
-        initComponents();
+   public SegurancaGUI(Aplicacao apli, Serializacao database) {
+        aplicacao = apli;
+        segurancaligado=(Seguranca) aplicacao.utilizadorLigado;
+        serializacao = database;
     }
-
-    private Aplicacao aplicacao;
-    private Serializacao database;
+    
     private ListaUtilizador listaUtilizador;
     private Parque parque;
     private Seguranca seguranca;
@@ -41,9 +44,9 @@ public class PaginaInicialSeguranca extends javax.swing.JFrame {
     private ModeloTabelaUtentes modeloTabelaUtentes;
     */
 
-    public PaginaInicialSeguranca(Aplicacao aplicacao, Parque parque, Serializacao database) {
+    public SegurancaGUI(Aplicacao aplicacao, Parque parque, Serializacao database) {
         initComponents();
-        this.database = database;
+        this.serializacao = database;
         this.aplicacao = aplicacao;
         this.parque = parque; 
          //Mostra a centralização da janela
@@ -54,6 +57,7 @@ public class PaginaInicialSeguranca extends javax.swing.JFrame {
         
         
     }
+
 
     
     @SuppressWarnings("unchecked")
@@ -186,63 +190,29 @@ public class PaginaInicialSeguranca extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btMudarUtilizadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMudarUtilizadorActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "Deseja realmente mudar de utilizador?", "A mudar...", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-            guardar();
+       /* if (JOptionPane.showConfirmDialog(null, "Deseja realmente mudar de utilizador?", "A mudar...", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+           guardar();
             dispose();
             Login jl = new Login(aplicacao, database);
             jl.setLocationRelativeTo(null);
             jl.setVisible(true);
-        }
+        }*/
     }//GEN-LAST:event_btMudarUtilizadorActionPerformed
 
     private void botaoTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoTerminarActionPerformed
-        terminar();
+        //terminar();
     }//GEN-LAST:event_botaoTerminarActionPerformed
 
     private void bFazerMarcacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFazerMarcacaoActionPerformed
-        Utente u = (Utente) sistema.getUserLigado();
-        FazerMarcacao fmarc = new FazerMarcacao(sistema, u);
-        fmarc.setVisible(true);
+        Utente u = (Utente) aplicacao.getUtilizadorLigado();
+        //FazerMarcacao fmarc = new FazerMarcacao(aplicacao, );
+        //fmarc.setVisible(true);
     }//GEN-LAST:event_bFazerMarcacaoActionPerformed
 
     private void bAtualizarMarcacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtualizarMarcacoesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bAtualizarMarcacoesActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PaginaInicialSeguranca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PaginaInicialSeguranca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PaginaInicialSeguranca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PaginaInicialSeguranca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PaginaInicialSeguranca().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAtualizarMarcacoes;

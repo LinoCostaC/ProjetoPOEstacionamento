@@ -42,7 +42,7 @@ public class ListaPedidoAcesso implements Serializable {
         return listaAcesso.contains(utente);
     }
     
-   
+   // Calcular Total Angariado
     public double calcularTotalAngariado() {
         double somaTotal = 0;
         for (PedidoAcesso pedido : listaAcesso) {
@@ -51,7 +51,7 @@ public class ListaPedidoAcesso implements Serializable {
         return somaTotal;
 
     }
-
+    // calcular Total Angariado Parque Livre
     public double calcularValorParqueLivre() {
         double somaTotal = 0;
         for (PedidoAcesso pedido : listaAcesso) {
@@ -61,7 +61,7 @@ public class ListaPedidoAcesso implements Serializable {
         }
         return somaTotal;
     }
-
+    // calcular Total Angariado Parque Lugar Assegurado
     public double calcularValorLugarAssegurado() {
         double somaTotal = 0;
         for (PedidoAcesso pedido : listaAcesso) {
@@ -71,7 +71,7 @@ public class ListaPedidoAcesso implements Serializable {
         }
         return somaTotal;
     }
-
+    // calcular Total Angariado Parque Condicionado
     public double calcularValorParqueCondicionado() {
         double somaTotal = 0;
         for (PedidoAcesso pedido : listaAcesso) {

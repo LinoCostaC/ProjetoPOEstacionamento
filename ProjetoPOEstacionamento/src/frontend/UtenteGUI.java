@@ -1,13 +1,27 @@
 
 package frontend;
 
+import BaseDeDados.Serializacao;
+import backend.Aplicacao;
+import backend.Parque;
+import backend.Utente;
+import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
-public class PaginaInicialUtente extends javax.swing.JPanel {
 
+public class UtenteGUI extends javax.swing.JPanel {
+    private Aplicacao aplicacao;
+    private Utente utenteligado;
+    Serializacao serializacao;
     
-    public PaginaInicialUtente() {
+    public UtenteGUI(Aplicacao apli, Serializacao database) {
         initComponents();
+        aplicacao=apli;
+        serializacao = database;
+        utenteligado=(Utente) aplicacao.utilizadorLigado;
+        
     }
+
+   
 
     
     @SuppressWarnings("unchecked")

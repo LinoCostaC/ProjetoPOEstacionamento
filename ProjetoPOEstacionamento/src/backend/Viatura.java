@@ -1,6 +1,8 @@
 
 package backend;
 
+import java.util.Objects;
+
 public class Viatura {
     
 //variaveis de instancia
@@ -66,5 +68,21 @@ public class Viatura {
     @Override
     public String toString() {
         return super.toString() + "Matricula=" + matricula + ", Marca=" + marca + ", Modelo=" + modelo + ", Combustivel=" + combustivel + '}';
+    }
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Viatura other = (Viatura) obj;
+        if (!Objects.equals(this.matricula, other.matricula)) {
+            return false;
+        }
+        return true;
     }
 }

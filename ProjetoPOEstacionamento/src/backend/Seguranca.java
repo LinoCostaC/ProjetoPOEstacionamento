@@ -4,7 +4,10 @@ package backend;
 import java.io.Serializable;
 
 
+
+
 public class Seguranca extends Utilizador implements Serializable {
+    private ListaViatura listaViatura;
     
     
 
@@ -34,6 +37,17 @@ public class Seguranca extends Utilizador implements Serializable {
 
     public void setNomeSeguranca(String nome) {
         this.nome = nome;
+    }
+    public boolean acessoParque (Parque parque, String matricula){
+       Viatura viatura = null ;
+       PedidoAcesso pedidoAcesso;
+       for(Viatura v : listaViatura.getListaViatura()){
+           if(v.getMatricula().equalsIgnoreCase(matricula)){
+               viatura = v;
+           }else{
+               System.out.println("A matricula não pertence a nenhum carro");
+           }
+       }return false;
     }
     
     @Override

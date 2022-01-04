@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
 public class Aplicacao implements Serializable {
 
-    private Utilizador utilizadorLigado;
-    private ListaParque listaParque;
-    private ListaUtilizador listaUtilizador;
-    private ListaViatura listaViatura;
-    private ListaEntradaSaida listaEntradaSaida;
-    private ListaPedidoAcesso listaPedidoAcesso;
+    public Utilizador utilizadorLigado;
+    public ListaParque listaParque;
+    public ListaUtilizador listaUtilizador;
+    public ListaViatura listaViatura;
+    public ListaEntradaSaida listaEntradaSaida;
+    public ListaPedidoAcesso listaPedidoAcesso;
 
     public Aplicacao() {
         listaParque = new ListaParque();
@@ -58,15 +58,20 @@ public class Aplicacao implements Serializable {
     }
 
     //Autenticar utilizador 
-    public boolean autenticarUser(String username, String password) throws ListaUtilizador.UtilizadorDuplicadoException {
-        if (listaUtilizador.existeUser(username)) {
-            Utilizador u = listaUtilizador.getUser(username);
-            if (u.getPassword().equals(password)) {
+    public boolean autenticarUser(String username, String password) {
+        if(listaUtilizador.existe(username)){
+            Utilizador u = listaUtilizador.getUtilizador(username);
+            if(u.getPassword().equals(password)){
                 utilizadorLigado = u;
+
                 return true;
             }
         }
         return false;
+    }
+    public void inicializarSistema() {
+        listaUtilizador.adicionar(new Administrador("admin", "admin", "Alex"));
+        listaUtilizador.adicionar(new Seguranca("seguranca","seguranca", "Bruno"));
     }
 
     //terminar 
