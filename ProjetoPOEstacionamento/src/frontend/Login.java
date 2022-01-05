@@ -18,10 +18,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
-/**
- *
- * @author LC
- */
 public class Login extends javax.swing.JFrame {
     private Aplicacao aplicacao;
     private Serializacao database;

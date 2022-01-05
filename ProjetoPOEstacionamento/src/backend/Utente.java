@@ -6,13 +6,13 @@ import java.io.Serializable;
 
 public class Utente extends Utilizador implements Serializable {
     //Variáveis
-    private int contactoTelefonico;
+    private String contactoTelefonico;
     private Viatura viaturaUtente;
     private PedidoAcesso pedidoAcesso;
     
    
     //Construtor
-    public Utente(String username, String password, String nome, int telefone) {
+    public Utente(String username, String password, String nome, String telefone) {
         super(username, password, nome);
         contactoTelefonico = telefone;
         
@@ -44,11 +44,11 @@ public class Utente extends Utilizador implements Serializable {
         this.nome = nome;
     }
     
-    public int getContactoTelefonico() {
+    public String getContactoTelefonico() {
         return contactoTelefonico;
     }
 
-    public void setContactoTelefonico(int contactoTelefonico) {    
+    public void setContactoTelefonico(String contactoTelefonico) {    
         this.contactoTelefonico = contactoTelefonico;
     }
 

@@ -72,6 +72,7 @@ public class Aplicacao implements Serializable {
     public void inicializarSistema() {
         listaUtilizador.adicionar(new Administrador("admin", "admin", "Alex"));
         listaUtilizador.adicionar(new Seguranca("seguranca","seguranca", "Bruno"));
+        listaUtilizador.adicionar(new Utente("utente","utente","Goncalo","969697763"));
     }
 
     //terminar 

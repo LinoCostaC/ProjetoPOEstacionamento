@@ -27,6 +27,7 @@ public class SegurancaGUI extends javax.swing.JFrame {
 
     
    public SegurancaGUI(Aplicacao apli, Serializacao database) {
+       initComponents();
         aplicacao = apli;
         segurancaligado=(Seguranca) aplicacao.utilizadorLigado;
         serializacao = database;
@@ -45,7 +46,6 @@ public class SegurancaGUI extends javax.swing.JFrame {
     */
 
     public SegurancaGUI(Aplicacao aplicacao, Parque parque, Serializacao database) {
-        initComponents();
         this.serializacao = database;
         this.aplicacao = aplicacao;
         this.parque = parque; 
