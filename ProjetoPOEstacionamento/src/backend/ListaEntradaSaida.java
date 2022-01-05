@@ -70,6 +70,21 @@ public class ListaEntradaSaida implements Serializable  {
       
     
 }
+      public boolean verificarDisponibilidade(Parque parque) {
+        double somaTotal = 0;
+        for (EntradaSaida controlo : listaEntradaSaida) {
+            if (controlo.getDataHoraEntrada()!= null && controlo.getDataHoraSaida() == null) {
+                somaTotal += 1;
+            }
+        }
+        if ((parque.getNumeroLugares()- somaTotal) == 0) {
+            return false;
+        } else {
+            return true;
+
+        }
+
+}
 }
       
       
