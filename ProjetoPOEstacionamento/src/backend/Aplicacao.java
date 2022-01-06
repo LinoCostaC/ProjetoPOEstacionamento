@@ -72,7 +72,14 @@ public class Aplicacao implements Serializable {
     public void inicializarSistema() {
         listaUtilizador.adicionar(new Administrador("admin", "admin", "Alex"));
         listaUtilizador.adicionar(new Seguranca("seguranca","seguranca", "Bruno"));
-        listaUtilizador.adicionar(new Utente("utente","utente","Goncalo","969697763"));
+        listaUtilizador.adicionar(new Utente ("utente","utente","Goncalo","969697763"));
+        listaViatura.adicionarViatura(new Viatura("47-HV-95","Renault", "Megane", "Gasóleo"));
+        
+        Utente utente= (Utente) listaUtilizador.getUtente("utente");
+        Viatura viatura=(Viatura) listaViatura.getViatura("47-HV-95");
+        utente.setViaturaUtente(viatura);
+        
+        
     }
 
     //terminar 

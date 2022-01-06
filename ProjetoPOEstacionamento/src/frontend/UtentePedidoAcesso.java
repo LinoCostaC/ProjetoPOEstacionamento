@@ -8,6 +8,7 @@ package frontend;
 import BaseDeDados.Serializacao;
 import backend.Aplicacao;
 import backend.Utente;
+import backend.PedidoAcesso;
 
 /**
  *
@@ -16,12 +17,14 @@ import backend.Utente;
 public class UtentePedidoAcesso extends javax.swing.JFrame {
     private Aplicacao aplicacao;
     Serializacao serializacao;
+    private PedidoAcesso pedidoacesso;
 
     
-   public UtentePedidoAcesso(Aplicacao apli, Serializacao database) {
+   public UtentePedidoAcesso(Aplicacao apli, Serializacao database, PedidoAcesso pedidoacesso) {
         initComponents();
         this.aplicacao = apli;
         this.serializacao = database;
+        this.pedidoacesso = pedidoacesso;
     }
     
     @SuppressWarnings("unchecked")
@@ -35,6 +38,12 @@ public class UtentePedidoAcesso extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 500));
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Estado Pedido de Acesso");
 
@@ -72,6 +81,10 @@ public class UtentePedidoAcesso extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        jTextField1.setText(pedidoacesso.getEstado().toString());
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables

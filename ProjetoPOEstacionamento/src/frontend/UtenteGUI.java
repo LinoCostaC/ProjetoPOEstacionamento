@@ -1,9 +1,13 @@
 
 package frontend;
+import frontend.UtentePedidoAcesso;
 import BaseDeDados.Serializacao;
 import backend.Aplicacao;
 import backend.Parque;
 import backend.Utente;
+import backend.PedidoAcesso;
+import backend.ListaViatura;
+import backend.Viatura;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 
@@ -11,12 +15,14 @@ public class UtenteGUI extends javax.swing.JFrame {
     private Aplicacao aplicacao;
     private Utente utenteligado;
     Serializacao serializacao;
+    private PedidoAcesso pedidoacesso;
     
-    public UtenteGUI(Aplicacao apli, Serializacao database) {
+    public UtenteGUI(Aplicacao apli, Serializacao database, PedidoAcesso pedidoacesso) {
         initComponents();
         this.aplicacao=apli;
         this.serializacao = database;
-        utenteligado=(Utente) aplicacao.utilizadorLigado;  
+        this.pedidoacesso = pedidoacesso;
+        utenteligado=(Utente) aplicacao.getUtilizadorLigado();  
     }
 
 
@@ -35,6 +41,7 @@ public class UtenteGUI extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,6 +89,13 @@ public class UtenteGUI extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setText("Matricula");
 
+        jButton2.setText("Mostrar Dados");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -98,7 +112,8 @@ public class UtenteGUI extends javax.swing.JFrame {
                     .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
                     .addComponent(jTextField3)
                     .addComponent(jTextField2)
-                    .addComponent(jTextField1))
+                    .addComponent(jButton2)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
@@ -117,7 +132,9 @@ public class UtenteGUI extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(102, 102, 102)
+                .addGap(58, 58, 58)
+                .addComponent(jButton2)
+                .addGap(22, 22, 22)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextField1)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
@@ -151,7 +168,8 @@ public class UtenteGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    UtentePedidoAcesso uPedidoAcesso = new UtentePedidoAcesso(aplicacao, serializacao, pedidoacesso);
+    uPedidoAcesso.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
@@ -159,11 +177,20 @@ public class UtenteGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       jTextField1.setText(utenteligado.getViaturaUtente().getMatricula());
+       jTextField2.setText(utenteligado.getViaturaUtente().getMarca());
+       jTextField3.setText(utenteligado.getViaturaUtente().getModelo());
+       jTextField4.setText(utenteligado.getViaturaUtente().getCombustivel());
+                                               
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -15,6 +15,7 @@ import backend.Seguranca;
 import backend.Utente;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import backend.PedidoAcesso;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
@@ -25,6 +26,7 @@ public class Login extends javax.swing.JFrame {
     private String showusern; 
     private String passw;
     private String showpassw;
+    private PedidoAcesso pedidoacesso;
     
      
      public Login(Aplicacao apli ,Serializacao database) {
@@ -64,7 +66,7 @@ public class Login extends javax.swing.JFrame {
         }else{
             aplicacao.autenticarUser(showusern, showpassw);
             if (aplicacao.utilizadorLigado instanceof Utente) {
-                UtenteGUI principal= new UtenteGUI(aplicacao,database);
+                UtenteGUI principal= new UtenteGUI(aplicacao,database,pedidoacesso);
                 principal.setVisible(true);
             }
             
