@@ -17,6 +17,7 @@ import backend.Viatura;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 
@@ -56,6 +57,14 @@ public class SegurancaGUI extends javax.swing.JFrame {
         setTitle("Página Inicial Gestor");
         
         
+    }
+    private void terminar() {
+        if (JOptionPane.showConfirmDialog(null,
+                "Deseja realmente terminar o programa?",
+                "Terminar",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            aplicacao.terminar();
+        }
     }
 
 
@@ -200,7 +209,7 @@ public class SegurancaGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btMudarUtilizadorActionPerformed
 
     private void botaoTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoTerminarActionPerformed
-        //terminar();
+        terminar();
     }//GEN-LAST:event_botaoTerminarActionPerformed
 
     private void bFazerMarcacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFazerMarcacaoActionPerformed

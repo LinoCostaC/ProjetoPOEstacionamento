@@ -65,7 +65,6 @@ public class AdminGUI extends javax.swing.JFrame {
                 "Deseja realmente terminar o programa?",
                 "Terminar",
                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-            guardar();
             aplicacao.terminar();
         }
     }
