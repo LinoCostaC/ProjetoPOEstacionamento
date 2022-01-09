@@ -1,7 +1,10 @@
 package backend;
 
+import static backend.Estado.PENDENTE;
 import java.io.Serializable;
 import java.util.ArrayList;
+import backend.Utente;
+import backend.Parque;
 
 public class Aplicacao implements Serializable {
 
@@ -74,11 +77,18 @@ public class Aplicacao implements Serializable {
         listaUtilizador.adicionar(new Seguranca("seguranca","seguranca", "Bruno"));
         listaUtilizador.adicionar(new Utente ("utente","utente","Goncalo","969697763"));
         listaViatura.adicionarViatura(new Viatura("47-HV-95","Renault", "Megane", "Gasóleo"));
+        listaUtilizador.adicionar(new Utente("utente1","utente1","Joao","968574125"));
+        listaViatura.adicionarViatura(new Viatura("24-PV-38","BMW","i3","Gasolina"));
+        
                 
         Utente utente= (Utente) listaUtilizador.getUtente("utente");
         Viatura viatura=(Viatura) listaViatura.getViatura("47-HV-95");
         utente.setViaturaUtente(viatura);
-                
+        
+        Utente utente1= (Utente) listaUtilizador.getUtente("utente1");
+        Viatura viatura1= (Viatura) listaViatura.getViatura("24-PV-38");
+        utente1.setViaturaUtente(viatura1);
+        
     }
 
     //terminar 

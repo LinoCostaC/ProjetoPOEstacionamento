@@ -2,7 +2,7 @@
 package backend;
 
 
-public class PedidoAcesso {
+public class PedidoAcesso extends Parque{
     //variaveis de instancia
     
     private Estado estadoPedido;
@@ -11,10 +11,11 @@ public class PedidoAcesso {
     
 //construtores
     
-    public PedidoAcesso(Estado estadoPedido, Utente pedidoUtente, Parque pedidoParque) {
+    public PedidoAcesso(Estado estadoPedido, Parque pedidoParque, Utente pedidoUtente) {
         this.pedidoUtente = pedidoUtente;
         this.pedidoParque = pedidoParque;
         estadoPedido = Estado.PENDENTE;
+        
     }
    
 
