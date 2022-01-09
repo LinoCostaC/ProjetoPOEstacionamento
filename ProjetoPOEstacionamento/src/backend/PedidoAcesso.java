@@ -1,8 +1,9 @@
 
 package backend;
+import java.io.Serializable;
 
 
-public class PedidoAcesso extends Parque{
+public class PedidoAcesso extends Parque implements Serializable {
     //variaveis de instancia
     
     private Estado estadoPedido;
@@ -11,7 +12,7 @@ public class PedidoAcesso extends Parque{
     
 //construtores
     
-    public PedidoAcesso(Estado estadoPedido, Parque pedidoParque, Utente pedidoUtente) {
+    public PedidoAcesso(Parque pedidoParque, Utente pedidoUtente) {
         this.pedidoUtente = pedidoUtente;
         this.pedidoParque = pedidoParque;
         estadoPedido = Estado.PENDENTE;

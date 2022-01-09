@@ -1,6 +1,7 @@
 package backend;
+import java.io.Serializable;
 
-public class ParqueAcessoLivre extends Parque {
+public class ParqueAcessoLivre extends Parque implements Serializable {
 
     
     private final int lugaresMaximosLivre;

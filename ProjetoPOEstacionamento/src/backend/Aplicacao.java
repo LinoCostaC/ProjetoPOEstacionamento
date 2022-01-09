@@ -1,19 +1,16 @@
 package backend;
 
-import static backend.Estado.PENDENTE;
 import java.io.Serializable;
 import java.util.ArrayList;
-import backend.Utente;
-import backend.Parque;
 
 public class Aplicacao implements Serializable {
 
-    public Utilizador utilizadorLigado;
-    public ListaParque listaParque;
-    public ListaUtilizador listaUtilizador;
-    public ListaViatura listaViatura;
-    public ListaEntradaSaida listaEntradaSaida;
-    public ListaPedidoAcesso listaPedidoAcesso;
+    private Utilizador utilizadorLigado;
+    private ListaParque listaParque;
+    private ListaUtilizador listaUtilizador;
+    private ListaViatura listaViatura;
+    private ListaEntradaSaida listaEntradaSaida;
+    private ListaPedidoAcesso listaPedidoAcesso;
 
     public Aplicacao() {
         listaParque = new ListaParque();
@@ -79,6 +76,7 @@ public class Aplicacao implements Serializable {
         listaViatura.adicionarViatura(new Viatura("47-HV-95","Renault", "Megane", "Gasóleo"));
         listaUtilizador.adicionar(new Utente("utente1","utente1","Joao","968574125"));
         listaViatura.adicionarViatura(new Viatura("24-PV-38","BMW","i3","Gasolina"));
+        listaParque.adicionarParque(new Parque("P1",50,30));
         
                 
         Utente utente= (Utente) listaUtilizador.getUtente("utente");

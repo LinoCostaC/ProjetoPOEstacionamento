@@ -65,18 +65,18 @@ public class Login extends javax.swing.JFrame {
             txtUsername.requestFocus();            
         }else{
             aplicacao.autenticarUser(showusern, showpassw);
-            if (aplicacao.utilizadorLigado instanceof Utente) {
+            if (aplicacao.getUtilizadorLigado() instanceof Utente) {
                 UtenteGUI principal= new UtenteGUI(aplicacao,database,pedidoacesso);
                 principal.setVisible(true);
             }
             
-            if (aplicacao.utilizadorLigado instanceof Administrador) {
+            if (aplicacao.getUtilizadorLigado() instanceof Administrador) {
                 
                 AdminGUI principal = new AdminGUI(aplicacao,database);
                 principal.setVisible(true);
             }
             
-            if (aplicacao.utilizadorLigado instanceof Seguranca) {
+            if (aplicacao.getUtilizadorLigado() instanceof Seguranca) {
                 
                 SegurancaGUI principal= new SegurancaGUI(aplicacao,database);
                 principal.setVisible(true);

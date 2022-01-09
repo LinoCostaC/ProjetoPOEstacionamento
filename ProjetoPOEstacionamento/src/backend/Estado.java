@@ -1,8 +1,9 @@
 
 package backend;
+import java.io.Serializable;
 
 
-public enum Estado {
+public enum Estado implements Serializable {
     PENDENTE,
     ATRIBUIDO,
     RECUSADO

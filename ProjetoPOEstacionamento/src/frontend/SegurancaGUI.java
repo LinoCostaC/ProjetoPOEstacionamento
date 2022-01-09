@@ -24,13 +24,13 @@ import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 public class SegurancaGUI extends javax.swing.JFrame {
     private Aplicacao aplicacao;
     private Seguranca segurancaligado;
-    Serializacao serializacao;
+    private Serializacao serializacao;
 
     
    public SegurancaGUI(Aplicacao apli, Serializacao database) {
        initComponents();
         aplicacao = apli;
-        segurancaligado=(Seguranca) aplicacao.utilizadorLigado;
+        segurancaligado=(Seguranca) aplicacao.getUtilizadorLigado();
         serializacao = database;
     }
     

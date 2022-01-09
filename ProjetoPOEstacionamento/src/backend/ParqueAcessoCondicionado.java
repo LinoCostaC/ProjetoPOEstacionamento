@@ -1,6 +1,7 @@
 package backend;
+import java.io.Serializable;
 
-public class ParqueAcessoCondicionado extends Parque {
+public class ParqueAcessoCondicionado extends Parque implements Serializable {
 
     // variaveis de instacia
     private double preco;

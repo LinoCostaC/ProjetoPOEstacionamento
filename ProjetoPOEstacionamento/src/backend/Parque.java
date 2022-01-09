@@ -1,7 +1,8 @@
 
 package backend;
+import java.io.Serializable;
 
-public class Parque {
+public class Parque implements Serializable {
     
 // variaveis de instacia
     

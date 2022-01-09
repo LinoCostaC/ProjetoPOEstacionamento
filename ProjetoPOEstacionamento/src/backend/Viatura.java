@@ -2,8 +2,9 @@
 package backend;
 
 import java.util.Objects;
+import java.io.Serializable;
 
-public class Viatura {
+public class Viatura implements Serializable {
     
 //variaveis de instancia
     

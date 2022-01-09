@@ -15,7 +15,8 @@ public class Utente extends Utilizador implements Serializable {
     public Utente(String username, String password, String nome, String telefone) {
         super(username, password, nome);
         contactoTelefonico = telefone;
-        
+        viaturaUtente= null;
+        pedidoAcesso= null;
     }
     
      //Getters e Setters
