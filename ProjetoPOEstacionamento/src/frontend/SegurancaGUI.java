@@ -41,10 +41,7 @@ public class SegurancaGUI extends javax.swing.JFrame {
     private Utente utente;
     private EntradaSaida entradaSaida;
     private ListaParque listaParque;
-   /* private ModeloTabelaMarcacoes modeloTabelaMarcacoes;
-    private ModeloTabelaCentroVacinacao modeloTabelaCentroVacinacao;
-    private ModeloTabelaUtentes modeloTabelaUtentes;
-    */
+   
 
     public SegurancaGUI(Aplicacao aplicacao, Parque parque, Serializacao database) {
         this.serializacao = database;
@@ -89,6 +86,11 @@ public class SegurancaGUI extends javax.swing.JFrame {
         bViaturaSeguranca.setText("Viaturas");
 
         bPedidoAcessoSeguranca.setText("Parques");
+        bPedidoAcessoSeguranca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bPedidoAcessoSegurancaActionPerformed(evt);
+            }
+        });
 
         bTerminar.setText("Terminar");
         bTerminar.addActionListener(new java.awt.event.ActionListener() {
@@ -133,8 +135,13 @@ public class SegurancaGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTerminarActionPerformed
-        // TODO add your handling code here:
+        terminar();
     }//GEN-LAST:event_bTerminarActionPerformed
+
+    private void bPedidoAcessoSegurancaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPedidoAcessoSegurancaActionPerformed
+        ListaDeParques listaParques = new ListaDeParques(aplicacao, serializacao);
+        listaParques.setVisible(true);
+    }//GEN-LAST:event_bPedidoAcessoSegurancaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

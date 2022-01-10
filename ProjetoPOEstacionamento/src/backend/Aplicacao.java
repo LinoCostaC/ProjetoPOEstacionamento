@@ -28,7 +28,7 @@ public class Aplicacao implements Serializable {
     public ListaParque getListaParque() {
         return listaParque;
     }
-
+    
     public ArrayList<Parque> getTotalParque() {
         return listaParque.getListaParque();
     }
@@ -56,6 +56,9 @@ public class Aplicacao implements Serializable {
     public void setListaPedidoAcesso(ListaPedidoAcesso listaPedidoAcesso) {
         this.listaPedidoAcesso = listaPedidoAcesso;
     }
+    
+    
+    
 
     //Autenticar utilizador 
     public boolean autenticarUser(String username, String password) {

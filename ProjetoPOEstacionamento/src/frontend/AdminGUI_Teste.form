@@ -25,24 +25,31 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="174" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                      <Component id="bSegurancas" min="-2" pref="114" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="bSegurancas" min="-2" pref="115" max="-2" attributes="0"/>
+                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="bParques" min="-2" pref="123" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="40" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btMudarUtilizador" min="-2" pref="170" max="-2" attributes="0"/>
-                  <Component id="bParques" min="-2" pref="114" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="botaoTerminar" min="-2" pref="115" max="-2" attributes="0"/>
-                  <Component id="bPedidos" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="botaoTerminar" min="-2" pref="115" max="-2" attributes="0"/>
+                      <Component id="bPedidosAcessoAdmin" min="-2" pref="131" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
           </Group>
@@ -53,19 +60,22 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btMudarUtilizador" min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="botaoTerminar" min="-2" pref="40" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="botaoTerminar" min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="bSegurancas" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-                  <Component id="bParques" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-                  <Component id="bPedidos" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="54" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="bParques" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="bPedidosAcessoAdmin" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="bSegurancas" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="52" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -88,20 +98,6 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btMudarUtilizador">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Rockwell" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Mudar Utilizador"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btMudarUtilizadorActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="botaoTerminar">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -116,14 +112,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoTerminarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="bSegurancas">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Segurancas"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bSegurancasActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="bParques">
       <Properties>
         <Property name="text" type="java.lang.String" value="Parques"/>
@@ -132,13 +120,36 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bParquesActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="bPedidos">
+    <Component class="javax.swing.JButton" name="bPedidosAcessoAdmin">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pedidos de Acesso"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bPedidosActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bPedidosAcessoAdminActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="bSegurancas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Segurancas"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bSegurancasActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Registo de Parques"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Informa&#xe7;&#xe3;o Pedidos de Acesso"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Informa&#xe7;&#xe3;o Seguran&#xe7;as"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

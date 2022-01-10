@@ -31,17 +31,17 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="labelNomeParque1" min="-2" pref="75" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtNomeParque1" min="-2" pref="170" max="-2" attributes="0"/>
+                              <Component id="txtNomeParque" min="-2" pref="170" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="labelNomeParque2" min="-2" pref="97" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtNomeParque" min="-2" pref="170" max="-2" attributes="0"/>
+                              <Component id="txtNumeroLugares" min="-2" pref="170" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="labelNomeParque" min="-2" pref="32" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="txtNomeParque2" min="-2" pref="170" max="-2" attributes="0"/>
+                              <Component id="txtPreco" min="-2" pref="170" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -68,17 +68,17 @@
               <Component id="labelParques1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtNomeParque1" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="txtNomeParque" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="labelNomeParque1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtNomeParque" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="txtNumeroLugares" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="labelNomeParque2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtNomeParque2" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="txtPreco" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="labelNomeParque" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -109,9 +109,9 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNomeParque">
+    <Component class="javax.swing.JTextField" name="txtNumeroLugares">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNomeParqueActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumeroLugaresActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelParques1">
@@ -148,9 +148,9 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNomeParque1">
+    <Component class="javax.swing.JTextField" name="txtNomeParque">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNomeParque1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNomeParqueActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelNomeParque2">
@@ -170,15 +170,18 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNomeParque2">
+    <Component class="javax.swing.JTextField" name="txtPreco">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNomeParque2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPrecoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bRegistoParque">
       <Properties>
         <Property name="text" type="java.lang.String" value="Registar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bRegistoParqueActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bCancelarRegistoParque">
       <Properties>

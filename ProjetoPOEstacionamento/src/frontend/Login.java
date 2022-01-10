@@ -72,7 +72,7 @@ public class Login extends javax.swing.JFrame {
             
             if (aplicacao.getUtilizadorLigado() instanceof Administrador) {
                 
-                AdminGUI principal = new AdminGUI(aplicacao,database);
+                AdminGUI_Teste principal = new AdminGUI_Teste(aplicacao,database);
                 principal.setVisible(true);
             }
             

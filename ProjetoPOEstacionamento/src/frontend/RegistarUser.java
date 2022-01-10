@@ -239,11 +239,12 @@ public class RegistarUser extends javax.swing.JFrame {
     }//GEN-LAST:event_bFecharActionPerformed
 
     private void bRegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistarActionPerformed
+    registar();
     guardar();
     }//GEN-LAST:event_bRegistarActionPerformed
 
     private void txtUsernameUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameUserActionPerformed
-    registar();
+    
     }//GEN-LAST:event_txtUsernameUserActionPerformed
 
     private void txtPasswordUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordUserActionPerformed
