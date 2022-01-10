@@ -54,12 +54,19 @@ public class ListaUtilizador implements Serializable {
     }
     
     //Método para retornar lista de Seguranças
-    //Set seguranca = listaUtilizador.keySet();
-            
-            
+    public ListaUtilizador listaSegurancas(){
+        ListaUtilizador listaSeguranca = new ListaUtilizador();
+        for (String i : listaUtilizador.keySet()){
+            if(listaUtilizador.get(i) instanceof Seguranca){
+                listaSeguranca.adicionar(listaUtilizador.get(i));
+            }
+        }
+        return listaSeguranca;
 }
-   
+           
+            
+            
+}    
     
-    }
 
 

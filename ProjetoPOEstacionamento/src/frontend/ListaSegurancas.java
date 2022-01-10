@@ -64,8 +64,7 @@ public class ListaSegurancas extends javax.swing.JFrame {
         
 
         aplicacao.getListaUtilizador().adicionar(new Seguranca(username,password,nome));
-        Login login = new Login(aplicacao, database);
-        login.setVisible(true);
+        
     }  
     
     

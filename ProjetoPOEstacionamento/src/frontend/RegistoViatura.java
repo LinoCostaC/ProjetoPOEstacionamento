@@ -1,13 +1,58 @@
 
 package frontend;
 
+import BaseDeDados.Serializacao;
+import backend.Aplicacao;
+import backend.Viatura;
+import javax.swing.JOptionPane;
+
 
 public class RegistoViatura extends javax.swing.JFrame {
 
-    
-    public RegistoViatura() {
+    private Aplicacao aplicacao;
+    private Serializacao serializacao;
+    private int avancar=0;
+    private String erro;
+
+    public RegistoViatura(Aplicacao aplicacao, Serializacao serializacao) {
         initComponents();
+        this.aplicacao = aplicacao;
+        this.serializacao = serializacao;
+
     }
+
+    private void registar() {
+          
+        if (txtMatriculaViatura.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Introduza a matricula da sua viatura", "Matricula EM FALTA", JOptionPane.WARNING_MESSAGE);
+            txtMatriculaViatura.requestFocus();
+        }
+       
+        if (txtMarcaViatura.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Introduza a marca da sua viatura!", "Marca da viatura EM FALTA", JOptionPane.WARNING_MESSAGE);
+            txtMarcaViatura.requestFocus();
+        }
+        if (txtModeloViatura.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Introduza o modelo da sua viatura!", "Modelo EM FALTA", JOptionPane.WARNING_MESSAGE);
+            txtModeloViatura.requestFocus();  
+        }
+        if(txtCombustivelViatura.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Introduza o combustivel da sua viatura", "Combustivel EM FALTA", JOptionPane.WARNING_MESSAGE);
+            txtCombustivelViatura.requestFocus();
+        }
+        
+        String matricula = txtMatriculaViatura.getText();
+        String marca = txtMarcaViatura.getText();
+        String modelo = txtModeloViatura.getText();
+        String combustivel = txtCombustivelViatura.getText();
+
+        aplicacao.getListaViatura().adicionarViatura(new Viatura(matricula,marca,modelo,combustivel));
+        
+    }
+    
+        public void fechar() {
+            dispose();
+        }
 
     
     @SuppressWarnings("unchecked")
@@ -29,6 +74,11 @@ public class RegistoViatura extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         bRegistoViatura.setText("Registar");
+        bRegistoViatura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRegistoViaturaActionPerformed(evt);
+            }
+        });
 
         labelParques1.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
         labelParques1.setText("Registar Viatura");
@@ -160,12 +210,17 @@ public class RegistoViatura extends javax.swing.JFrame {
     }//GEN-LAST:event_txtModeloViaturaActionPerformed
 
     private void bCancelarRegistoViaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarRegistoViaturaActionPerformed
-        this.dispose();
+        fechar();
     }//GEN-LAST:event_bCancelarRegistoViaturaActionPerformed
 
     private void txtCombustivelViaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCombustivelViaturaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCombustivelViaturaActionPerformed
+
+    private void bRegistoViaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistoViaturaActionPerformed
+        registar();
+        this.dispose();
+    }//GEN-LAST:event_bRegistoViaturaActionPerformed
 
     
 

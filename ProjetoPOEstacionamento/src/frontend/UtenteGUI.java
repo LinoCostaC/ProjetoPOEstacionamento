@@ -43,6 +43,7 @@ public class UtenteGUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        bRegistarViaturaUtente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,6 +105,13 @@ public class UtenteGUI extends javax.swing.JFrame {
             }
         });
 
+        bRegistarViaturaUtente.setText("Registar Viatura");
+        bRegistarViaturaUtente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRegistarViaturaUtenteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -120,8 +128,11 @@ public class UtenteGUI extends javax.swing.JFrame {
                     .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
                     .addComponent(jTextField3)
                     .addComponent(jTextField2)
-                    .addComponent(jButton2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(bRegistarViaturaUtente, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
@@ -145,9 +156,11 @@ public class UtenteGUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jButton1)
                         .addGap(63, 63, 63)))
-                .addGap(58, 58, 58)
-                .addComponent(jButton2)
-                .addGap(22, 22, 22)
+                .addGap(62, 62, 62)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(bRegistarViaturaUtente))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextField1)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
@@ -208,7 +221,13 @@ public class UtenteGUI extends javax.swing.JFrame {
      System.exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void bRegistarViaturaUtenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistarViaturaUtenteActionPerformed
+        RegistoViatura registoViatura = new RegistoViatura(aplicacao, serializacao);
+        registoViatura.setVisible(true);
+    }//GEN-LAST:event_bRegistarViaturaUtenteActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bRegistarViaturaUtente;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

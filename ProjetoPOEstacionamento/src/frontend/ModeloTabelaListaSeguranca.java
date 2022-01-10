@@ -7,13 +7,13 @@ import javax.swing.table.AbstractTableModel;
 
 public class ModeloTabelaListaSeguranca extends AbstractTableModel {
     private ModeloTabelaListaSeguranca modeloTabela;
-    private ListaUtilizador seguranca;
+    private ListaUtilizador listaSeguranca;
     private static String[] colunasTabela = new String[]{
         "Username", "Pasword", "Nome"
     };
 
     public ModeloTabelaListaSeguranca(ListaUtilizador seguranca) {
-        this.seguranca = seguranca;
+        this.listaSeguranca = seguranca;
     }
 
     public void atualizar() {
@@ -22,7 +22,7 @@ public class ModeloTabelaListaSeguranca extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return seguranca.size();
+        return listaSeguranca.size();
     }
 
     @Override
@@ -34,25 +34,25 @@ public class ModeloTabelaListaSeguranca extends AbstractTableModel {
     public String getColumnName(int column) {
         return colunasTabela[column];
     }
-
+/*
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Seguranca s = seguranca.get(rowIndex);
+        
 
         switch (columnIndex) {
             case 0:
-                return s.getUsernameSeguranca();
+                return listaSeguranca.listaSegurancas().;
 
             case 1:
-                return s.getPasswordSeguranca();
+                return seguranca.getPasswordSeguranca();
                 
             case 2:
-                return s.getNomeSeguranca();
+                return seguranca.getNomeSeguranca();
                 
         }
         return null;
     }
-    
+    */
 
 }
 //ahdlkashjdljasjd
