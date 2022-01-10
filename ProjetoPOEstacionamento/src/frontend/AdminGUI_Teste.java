@@ -29,6 +29,7 @@ public class AdminGUI_Teste extends javax.swing.JFrame {
         initComponents();
         this.database = database;
         this.aplicacao = aplicacao;
+        //nao sei o que dizer
         
         setTitle("Página Inicial Admnistrador");
         
