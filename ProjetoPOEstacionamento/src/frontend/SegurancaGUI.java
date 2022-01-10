@@ -86,6 +86,11 @@ public class SegurancaGUI extends javax.swing.JFrame {
         jLabel1.setPreferredSize(new java.awt.Dimension(174, 34));
 
         bViaturaSeguranca.setText("Viaturas");
+        bViaturaSeguranca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bViaturaSegurancaActionPerformed(evt);
+            }
+        });
 
         bPedidoAcessoSeguranca.setText("Parques");
         bPedidoAcessoSeguranca.addActionListener(new java.awt.event.ActionListener() {
@@ -156,6 +161,11 @@ public class SegurancaGUI extends javax.swing.JFrame {
         ListaDeParques listaParques = new ListaDeParques(aplicacao, serializacao);
         listaParques.setVisible(true);
     }//GEN-LAST:event_bPedidoAcessoSegurancaActionPerformed
+
+    private void bViaturaSegurancaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bViaturaSegurancaActionPerformed
+        EntradaSaidaViatura listaEntradaSaida = new EntradaSaidaViatura(aplicacao, serializacao);
+        listaEntradaSaida.setVisible(true);
+    }//GEN-LAST:event_bViaturaSegurancaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
