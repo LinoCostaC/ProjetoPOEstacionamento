@@ -233,6 +233,7 @@ public class AdminGUI_Teste extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoTerminarActionPerformed
+        database.guardar(aplicacao);
         terminar();
     }//GEN-LAST:event_botaoTerminarActionPerformed
 

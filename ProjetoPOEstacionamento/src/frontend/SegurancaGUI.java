@@ -154,6 +154,7 @@ public class SegurancaGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTerminarActionPerformed
+        serializacao.guardar(aplicacao);
         terminar();
     }//GEN-LAST:event_bTerminarActionPerformed
 

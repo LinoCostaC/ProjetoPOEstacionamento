@@ -244,6 +244,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_pfPasswordActionPerformed
 
     private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
+        database.guardar(aplicacao);
         terminar();
     }//GEN-LAST:event_jbSairActionPerformed
 
