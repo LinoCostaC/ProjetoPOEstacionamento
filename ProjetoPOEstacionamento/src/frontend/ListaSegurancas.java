@@ -35,11 +35,19 @@ public class ListaSegurancas extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         
-        modeloTabelaListaSeguranca = new ModeloTabelaListaSeguranca(aplicacao.getListaUtilizador());
+        modeloTabelaListaSeguranca = new ModeloTabelaListaSeguranca(aplicacao.getListaUtilizador().listaSegurancas());
         tabelaSeguranca.setModel(modeloTabelaListaSeguranca);
         
         
-    }    
+    }   
+    
+    
+    
+    
+    
+    
+    
+    
 
       private void registar() {
           

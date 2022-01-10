@@ -45,8 +45,7 @@ public class RegistoParquesAdmin extends javax.swing.JFrame {
         String preco = txtPreco.getText();
         //not sure em relação a esse construtor (diferentes tipos)
        // aplicacao.getListaParque().adicionarParque(new Parque(nome, numeroLugares, preco));
-        Login login = new Login(aplicacao, serializacao);
-        login.setVisible(true);
+        
     }
     
 
