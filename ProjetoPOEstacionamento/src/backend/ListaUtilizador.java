@@ -52,6 +52,12 @@ public class ListaUtilizador implements Serializable {
     public int size() {
         return listaUtilizador.size();
     }
+    
+    //Método para retornar lista de Seguranças
+    //Set seguranca = listaUtilizador.keySet();
+            
+            
+}
    
     
     }

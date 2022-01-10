@@ -13,6 +13,7 @@ import backend.PedidoAcesso;
 
 
 
+
 public class ListaSegurancas extends javax.swing.JFrame {
     private Aplicacao aplicacao;
     private Serializacao database;
@@ -40,10 +41,33 @@ public class ListaSegurancas extends javax.swing.JFrame {
         
     }    
 
+      private void registar() {
+          
+        if (txtUsernameSeguranca.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Introduza o seu Username", "Username EM FALTA", JOptionPane.WARNING_MESSAGE);
+            txtUsernameSeguranca.requestFocus();
+        }
+       
+        if (txtPasswordSeguranca.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Introduza a sua Password!", "PASSWORD EM FALTA", JOptionPane.WARNING_MESSAGE);
+            txtPasswordSeguranca.requestFocus();
+        }
+        if (txtNomeSeguranca.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Introduza o seu Nome!", "NOME EM FALTA", JOptionPane.WARNING_MESSAGE);
+            txtNomeSeguranca.requestFocus();  
+        }
+        
+        
+        String nome = txtNomeSeguranca.getText();
+        String username = txtUsernameSeguranca.getText();
+        String password = txtPasswordSeguranca.getText();
+        
 
-     private void guardar() {
-        database.guardar(aplicacao);
-    }
+        aplicacao.getListaUtilizador().adicionar(new Seguranca(username,password,nome));
+        Login login = new Login(aplicacao, database);
+        login.setVisible(true);
+    }  
+    
     
     private void editar() {
         int rowIndex = tabelaSeguranca.getSelectedRow();
@@ -75,9 +99,10 @@ public class ListaSegurancas extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtNomeSeguranca = new javax.swing.JTextField();
+        txtUsernameSeguranca = new javax.swing.JTextField();
+        txtPasswordSeguranca = new javax.swing.JTextField();
+        bRegistarSeguranca = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -136,6 +161,13 @@ public class ListaSegurancas extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Nome:");
 
+        bRegistarSeguranca.setText("Registar");
+        bRegistarSeguranca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRegistarSegurancaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -157,20 +189,23 @@ public class ListaSegurancas extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(19, 19, 19)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(bRegistarSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtNomeSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtUsernameSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtPasswordSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 13, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,15 +227,17 @@ public class ListaSegurancas extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtUsernameSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(13, 13, 13)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPasswordSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtNomeSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addComponent(bRegistarSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -230,11 +267,17 @@ public class ListaSegurancas extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_bCancelarActionPerformed
 
+    private void bRegistarSegurancaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistarSegurancaActionPerformed
+        registar();
+        this.dispose();
+    }//GEN-LAST:event_bRegistarSegurancaActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAtualizar;
     private javax.swing.JButton bCancelar;
+    private javax.swing.JButton bRegistarSeguranca;
     private javax.swing.JButton bRemover;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -242,9 +285,9 @@ public class ListaSegurancas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTable tabelaSeguranca;
+    private javax.swing.JTextField txtNomeSeguranca;
+    private javax.swing.JTextField txtPasswordSeguranca;
+    private javax.swing.JTextField txtUsernameSeguranca;
     // End of variables declaration//GEN-END:variables
 }

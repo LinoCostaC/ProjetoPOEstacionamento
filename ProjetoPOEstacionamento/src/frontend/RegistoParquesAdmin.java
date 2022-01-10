@@ -26,52 +26,29 @@ public class RegistoParquesAdmin extends javax.swing.JFrame {
     private void registar() {
           
         if (txtNomeParque.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Introduza o seu Username", "Username EM FALTA", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Introduza o nome do parque", "Nome do parque em falta", JOptionPane.WARNING_MESSAGE);
             txtNomeParque.requestFocus();
         }
        
         if (txtNumeroLugares.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Introduza a sua Password!", "PASSWORD EM FALTA", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Introduza o numero de lugares!", "Numero de lugares em falta", JOptionPane.WARNING_MESSAGE);
             txtNumeroLugares.requestFocus();
         }
         if (txtPreco.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Introduza o seu Nome!", "NOME EM FALTA", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Introduza o preço!", "Preço do parque em falta", JOptionPane.WARNING_MESSAGE);
             txtPreco.requestFocus();  
         }
        
         
-        String nomeParque = txtNomeParque.getText();
+        String nome = txtNomeParque.getText();
         String numeroLugares = txtNumeroLugares.getText();
         String preco = txtPreco.getText();
         //not sure em relação a esse construtor (diferentes tipos)
-        aplicacao.getListaParque().adicionarParque(new Parque());
+       // aplicacao.getListaParque().adicionarParque(new Parque(nome, numeroLugares, preco));
         Login login = new Login(aplicacao, serializacao);
         login.setVisible(true);
     }
-    private void guardar() {
-            
-         if (txtNomeParque.getText().isEmpty()){
-            avancar = 0;
-            erro = "O campo username está vazio";
-        }
-        
-        else if (txtNumeroLugares.getText().isEmpty()) {
-            avancar = 0;
-            erro = "O campo password está vazio";
-        }
-        else if (txtPreco.getText().isEmpty()) {
-            avancar = 0;
-            erro = "O campo nome está vazio";
-        }
-       
-        else {
-            JOptionPane.showMessageDialog(this,erro);
-  
-        }
-        JOptionPane.showMessageDialog(this, "Parque adicionado com sucesso.");
-        fechar();
-        
-    }
+    
 
 
         public void fechar() {
@@ -229,7 +206,7 @@ public class RegistoParquesAdmin extends javax.swing.JFrame {
 
     private void bRegistoParqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistoParqueActionPerformed
         registar();
-        guardar();
+        
     }//GEN-LAST:event_bRegistoParqueActionPerformed
 
     
