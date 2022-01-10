@@ -19,7 +19,6 @@ public class ModeloTabelaListaSeguranca extends AbstractTableModel {
     }
 
     public void atualizar() {
-        //Informa o modelo que foram efetuadas alteracoes, o modelo informa a tabela e os dados são redesenhados
         modeloTabela.fireTableDataChanged();
     }
 

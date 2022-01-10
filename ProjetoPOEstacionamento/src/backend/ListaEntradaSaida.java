@@ -70,6 +70,8 @@ public class ListaEntradaSaida implements Serializable  {
       
     
 }
+      
+      // Verificar a disponibilidade de lugares no parque
       public boolean verificarDisponibilidade(Parque parque) {
         double somaTotal = 0;
         for (EntradaSaida controlo : listaEntradaSaida) {
