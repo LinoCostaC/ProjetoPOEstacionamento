@@ -138,7 +138,8 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jlLogin.setFont(new java.awt.Font("Dubai", 0, 48)); // NOI18N
+        jlLogin.setFont(new java.awt.Font("Dubai", 1, 48)); // NOI18N
+        jlLogin.setForeground(new java.awt.Color(255, 51, 51));
         jlLogin.setText("LOGIN");
 
         jbEntrar.setFont(new java.awt.Font("Dubai", 0, 14)); // NOI18N

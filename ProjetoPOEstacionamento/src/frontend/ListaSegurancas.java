@@ -10,6 +10,7 @@ import backend.ListaUtilizador;
 import backend.Aplicacao;
 import backend.ListaPedidoAcesso;
 import backend.PedidoAcesso;
+import backend.Utilizador;
 
 
 
@@ -19,6 +20,7 @@ public class ListaSegurancas extends javax.swing.JFrame {
     private Serializacao database;
     private ListaUtilizador listaSegurancas;
     private Seguranca seguranca;
+    private Utilizador utilizador;
     private ModeloTabelaListaSeguranca modeloTabelaListaSeguranca;
     
     public ListaSegurancas(Aplicacao aplicacao, Serializacao database) {
@@ -41,14 +43,6 @@ public class ListaSegurancas extends javax.swing.JFrame {
         
     }   
     
-    
-    
-    
-    
-    
-    
-    
-
       private void registar() {
           
         if (txtUsernameSeguranca.getText().isEmpty()) {
@@ -73,8 +67,30 @@ public class ListaSegurancas extends javax.swing.JFrame {
 
         aplicacao.getListaUtilizador().adicionar(new Seguranca(username,password,nome));
         
-    }  
-    
+    } 
+      /*-
+      public void removerSeguranca() {
+        int rowIndex = tabelaSeguranca.getSelectedRow();
+        //Se nenhum registo selecionado, nao é possivel editar
+        if (rowIndex == -1) {
+            return;
+        }
+
+        String username = (String) modeloTabelaListaSeguranca.getValueAt(rowIndex, 1);
+        
+        utilizador = aplicacao.getListaUtilizador().getUtilizador(username);
+        seguranca = aplicacao.getListaUtilizador().getSeguranca(username);
+        
+        if (JOptionPane.showConfirmDialog(null,
+                "Deseja eliminar o Segurança?",
+                "Eliminado",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            seguranca = aplicacao.getListaUtilizador().getSeguranca(username);
+            aplicacao.getListaUtilizador().;
+            }
+        modeloTabelaListaSeguranca.fireTableDataChanged();
+        }
+    */
     
     private void editar() {
         int rowIndex = tabelaSeguranca.getSelectedRow();

@@ -155,7 +155,7 @@ public class RegistoParquesAdmin extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(bCancelarRegistoParque)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(bRegistoParque, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(bRegistoParque, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(labelParques1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
