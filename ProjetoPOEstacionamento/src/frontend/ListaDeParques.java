@@ -12,6 +12,7 @@ import backend.Parque;
 
 
 
+
 public class ListaDeParques extends javax.swing.JFrame {
     private Aplicacao aplicacao;
     private Serializacao database;
@@ -38,6 +39,25 @@ public class ListaDeParques extends javax.swing.JFrame {
         
         
     }    
+    
+    public void removerParque() {
+        int rowIndex = tabelaParque.getSelectedRow();
+        //Se nenhum registo selecionado, nao é possivel editar
+        if (rowIndex == -1) {
+            return;
+        }
+        
+        String nome = (String) modeloTabelaListaParque.getValueAt(rowIndex, 0);
+        
+        if (JOptionPane.showConfirmDialog(null,
+                "Deseja eliminar este parque?",
+                "Eliminado",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            aplicacao.getListaParque().removerParque(parque);
+            }
+    }
+    
+
 
 
      private void guardar() {
@@ -161,7 +181,7 @@ public class ListaDeParques extends javax.swing.JFrame {
     }//GEN-LAST:event_bCancelarActionPerformed
 
     private void bRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRemoverActionPerformed
-        // TODO add your handling code here:
+        removerParque();
     }//GEN-LAST:event_bRemoverActionPerformed
 
     

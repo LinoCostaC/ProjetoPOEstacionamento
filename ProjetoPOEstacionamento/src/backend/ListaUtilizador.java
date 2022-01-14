@@ -53,10 +53,7 @@ public class ListaUtilizador implements Serializable {
         return listaUtilizador.size();
     }
     
-    
-    
-            
-            
+          
             
     
     //Método para retornar lista de Seguranças

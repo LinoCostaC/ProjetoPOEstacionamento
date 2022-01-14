@@ -68,7 +68,7 @@ public class ListaSegurancas extends javax.swing.JFrame {
         aplicacao.getListaUtilizador().adicionar(new Seguranca(username,password,nome));
         
     } 
-      /*-
+      
       public void removerSeguranca() {
         int rowIndex = tabelaSeguranca.getSelectedRow();
         //Se nenhum registo selecionado, nao é possivel editar
@@ -78,7 +78,7 @@ public class ListaSegurancas extends javax.swing.JFrame {
 
         String username = (String) modeloTabelaListaSeguranca.getValueAt(rowIndex, 1);
         
-        utilizador = aplicacao.getListaUtilizador().getUtilizador(username);
+        
         seguranca = aplicacao.getListaUtilizador().getSeguranca(username);
         
         if (JOptionPane.showConfirmDialog(null,
@@ -86,11 +86,11 @@ public class ListaSegurancas extends javax.swing.JFrame {
                 "Eliminado",
                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             seguranca = aplicacao.getListaUtilizador().getSeguranca(username);
-            aplicacao.getListaUtilizador().;
+            aplicacao.getListaUtilizador().remover(seguranca);
             }
         modeloTabelaListaSeguranca.fireTableDataChanged();
         }
-    */
+    
     
     private void editar() {
         int rowIndex = tabelaSeguranca.getSelectedRow();
@@ -148,6 +148,11 @@ public class ListaSegurancas extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelaSeguranca);
 
         bRemover.setText("Remover");
+        bRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRemoverActionPerformed(evt);
+            }
+        });
 
         bAtualizar.setText("Atualizar");
         bAtualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -294,6 +299,10 @@ public class ListaSegurancas extends javax.swing.JFrame {
         registar();
         this.dispose();
     }//GEN-LAST:event_bRegistarSegurancaActionPerformed
+
+    private void bRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRemoverActionPerformed
+        removerSeguranca();
+    }//GEN-LAST:event_bRemoverActionPerformed
 
     
 
