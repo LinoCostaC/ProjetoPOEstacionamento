@@ -55,8 +55,7 @@ public class ListaEntradaSaida implements Serializable  {
         }
            
 }
-    
-      
+  
     //Obter lista de viaturas que estão dentro das instalações
       public ArrayList<Viatura> viaturaInstalações(EntradaSaida dataHoraSaida){
           ArrayList<Viatura> listaViatura = new ArrayList<Viatura>();
@@ -67,8 +66,7 @@ public class ListaEntradaSaida implements Serializable  {
               
           }
                 return listaViatura;
-      
-    
+ 
 }
       
       // Verificar a disponibilidade de lugares no parque

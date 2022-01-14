@@ -91,9 +91,9 @@
                           <Component id="cbViaturas" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="cbParques" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
-                          <Component id="jlUsername2" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cbParques" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                          <Component id="jlUsername2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Component id="bRegistoEntrada" min="-2" pref="38" max="-2" attributes="0"/>
@@ -227,6 +227,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Registar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bRegistoEntradaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jlUsername">
       <Properties>

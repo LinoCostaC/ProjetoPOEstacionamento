@@ -130,6 +130,11 @@ public class EntradaSaidaViatura extends javax.swing.JFrame {
         jLabel1.setPreferredSize(new java.awt.Dimension(174, 34));
 
         bRegistoEntrada.setText("Registar");
+        bRegistoEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRegistoEntradaActionPerformed(evt);
+            }
+        });
 
         jlUsername.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jlUsername.setText("Data de Entrada");
@@ -207,7 +212,7 @@ public class EntradaSaidaViatura extends javax.swing.JFrame {
                             .addComponent(jlUsername1)
                             .addComponent(cbViaturas, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cbParques, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jlUsername2))
                         .addGap(36, 36, 36)
@@ -250,6 +255,10 @@ public class EntradaSaidaViatura extends javax.swing.JFrame {
     private void tabelaEntradaSaidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaEntradaSaidaMouseClicked
 
     }//GEN-LAST:event_tabelaEntradaSaidaMouseClicked
+
+    private void bRegistoEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistoEntradaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bRegistoEntradaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
