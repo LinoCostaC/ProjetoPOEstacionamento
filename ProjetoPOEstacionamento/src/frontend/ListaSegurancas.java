@@ -92,11 +92,7 @@ public class ListaSegurancas extends javax.swing.JFrame {
         }
     
     
-    private void editar() {
-        int rowIndex = tabelaSeguranca.getSelectedRow();
-        
-        
-    }
+    
     
   
     
