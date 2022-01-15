@@ -1,6 +1,5 @@
 package frontend;
 
-import backend.Aplicacao;
 import backend.Utilizador;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;

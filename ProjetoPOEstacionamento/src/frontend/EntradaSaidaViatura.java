@@ -20,7 +20,7 @@ public class EntradaSaidaViatura extends javax.swing.JFrame {
     private Serializacao database;
     private ListaEntradaSaida listaEntradaSaida;
     private EntradaSaida entradaSaida;
-    private ModeloTabelaEntradaSaida modeloTabelaEntradaSaida;
+    private ModeloTabelaEntradaSaida modeloTabela;
     
     public EntradaSaidaViatura(Aplicacao aplicacao, Serializacao database) {
         initComponents();
@@ -36,21 +36,11 @@ public class EntradaSaidaViatura extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         
-        modeloTabelaEntradaSaida = new ModeloTabelaEntradaSaida(aplicacao.getListaEntradaSaida());
-        tabelaEntradaSaida.setModel(modeloTabelaEntradaSaida);
-        
-        
+        modeloTabela = new ModeloTabelaEntradaSaida(aplicacao.getListaEntradaSaida());
+        tabelaEntradaSaida.setModel(modeloTabela);
+
     }    
-    
-    
-    /*
-    private void carregarCb(){
-        for(int i=0; i<this.aplicacao.getListaParque().size(); i++){
-            this.cbViaturas.addItem(this.aplicacao.getListaViatura().get(i).getMatricula());
-        }
-    }*/
-    
-    
+
 
      private void guardar() {
         database.guardar(aplicacao);
@@ -69,7 +59,6 @@ public class EntradaSaidaViatura extends javax.swing.JFrame {
 
         bCancelar = new javax.swing.JButton();
         bAtualizar = new javax.swing.JButton();
-        bRemover = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaEntradaSaida = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -95,13 +84,6 @@ public class EntradaSaidaViatura extends javax.swing.JFrame {
         bAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bAtualizarActionPerformed(evt);
-            }
-        });
-
-        bRemover.setText("Remover");
-        bRemover.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bRemoverActionPerformed(evt);
             }
         });
 
@@ -148,6 +130,11 @@ public class EntradaSaidaViatura extends javax.swing.JFrame {
         jlUsername2.setText("Parques");
 
         cbParques.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbParques.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbParquesActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
         jLabel3.setText("Lista Entradas e Saídas");
@@ -162,11 +149,10 @@ public class EntradaSaidaViatura extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(bRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(138, 138, 138)
-                        .addComponent(bAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(203, 203, 203)
+                        .addComponent(bAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -221,15 +207,10 @@ public class EntradaSaidaViatura extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(24, 24, 24)
@@ -245,12 +226,8 @@ public class EntradaSaidaViatura extends javax.swing.JFrame {
     }//GEN-LAST:event_bCancelarActionPerformed
 
     private void bAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtualizarActionPerformed
-        modeloTabelaEntradaSaida.fireTableDataChanged();
+        modeloTabela.fireTableDataChanged();
     }//GEN-LAST:event_bAtualizarActionPerformed
-
-    private void bRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRemoverActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bRemoverActionPerformed
 
     private void tabelaEntradaSaidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaEntradaSaidaMouseClicked
 
@@ -260,12 +237,15 @@ public class EntradaSaidaViatura extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bRegistoEntradaActionPerformed
 
+    private void cbParquesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbParquesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbParquesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAtualizar;
     private javax.swing.JButton bCancelar;
     private javax.swing.JButton bRegistoEntrada;
-    private javax.swing.JButton bRemover;
     private javax.swing.JComboBox<String> cbParques;
     private javax.swing.JComboBox<String> cbViaturas;
     private javax.swing.JLabel jLabel1;

@@ -15,10 +15,8 @@ public class PedidoAcesso extends Parque implements Serializable {
     public PedidoAcesso(Parque pedidoParque, Utente pedidoUtente) {
         this.pedidoUtente = pedidoUtente;
         this.pedidoParque = pedidoParque;
-        estadoPedido = Estado.PENDENTE;
-        
+        estadoPedido = Estado.PENDENTE;  
     }
-   
 
     public Estado getEstado() {
         return estadoPedido;
@@ -43,6 +41,7 @@ public class PedidoAcesso extends Parque implements Serializable {
     public void setPedidoUtente(Utente pedidoUtente) {
         this.pedidoUtente = pedidoUtente;
     }
+    
      public double valorPagar(PedidoAcesso pedido){
         if(!estadoPedido.equals(Estado.ATRIBUIDO)){
             return 0;
@@ -50,6 +49,8 @@ public class PedidoAcesso extends Parque implements Serializable {
             return pedidoParque.getPreco();
         }
     }
+     
+    
     
     
 }

@@ -62,10 +62,8 @@ public class ListaViatura implements Serializable {
         double count = 0.0;
         for (Viatura v : listaViatura){
             if (v.getCombustivel().equals(combustivel)){
-              
                 count++;  
-            } 
-     
+            }      
         }
         double percentagem = count/getTotalViatura() * 100;
         return percentagem; 

@@ -5,10 +5,7 @@ import backend.ListaPedidoAcesso;
 import backend.PedidoAcesso;
 import backend.Aplicacao;
 import BaseDeDados.Serializacao;
-import backend.Utente;
-import java.time.LocalDate;
-import java.util.ArrayList;
-
+import backend.Estado;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
@@ -27,6 +24,7 @@ public class PedidoAcessoAdmin extends javax.swing.JFrame {
         initComponents();
         this.database = database;
         this.aplicacao = aplicacao;
+        this.listaPedidoAcesso = aplicacao.getListaPedidoAcesso();
         
         setTitle("Página Inicial Admnistrador");
         
@@ -37,28 +35,53 @@ public class PedidoAcessoAdmin extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         
-        modeloTabelaPedidoAcesso = new ModeloTabelaPedidoAcesso(aplicacao.getListaPedidoAcesso());
+        modeloTabelaPedidoAcesso = new ModeloTabelaPedidoAcesso(listaPedidoAcesso);
         tabelaPedidoAcesso.setModel(modeloTabelaPedidoAcesso);
         
         
     }    
-    
-    
 
-   
-   
      private void guardar() {
         database.guardar(aplicacao);
     }
     
     private void editar() {
         int rowIndex = tabelaPedidoAcesso.getSelectedRow();
-        
-        
+          
     }
     
-   
-   
+    private void aceitarPedido(){
+        int rowIndex = tabelaPedidoAcesso.getSelectedRow();
+        //Se nenhum registo selecionado, nao é possivel editar
+        if (rowIndex == -1) {
+            JOptionPane.showMessageDialog(this, "Selecione um pedido!");
+            return;
+        }
+ 
+     PedidoAcesso pa = listaPedidoAcesso.get(rowIndex);
+     if(pa != null){
+         pa.setEstado(Estado.ATRIBUIDO);
+         JOptionPane.showMessageDialog(this, "Pedido Atribuído!");
+     }
+     this.modeloTabelaPedidoAcesso.fireTableDataChanged();
+    }
+    
+    private void rejeitarPedido(){
+        int rowIndex = tabelaPedidoAcesso.getSelectedRow();
+        //Se nenhum registo selecionado, nao é possivel editar
+        if (rowIndex == -1) {
+            JOptionPane.showMessageDialog(this, "Selecione um pedido!");
+            return;
+        }
+ 
+     PedidoAcesso pa = listaPedidoAcesso.get(rowIndex);
+     if(pa.getEstado() == Estado.PENDENTE) {
+         pa.setEstado(Estado.RECUSADO);
+         JOptionPane.showMessageDialog(this, "Pedido Recusado!");
+     }
+     this.modeloTabelaPedidoAcesso.fireTableDataChanged();
+    }
+
     
     
     @SuppressWarnings("unchecked")
@@ -71,7 +94,6 @@ public class PedidoAcessoAdmin extends javax.swing.JFrame {
         bAceitarPedido = new javax.swing.JButton();
         bRejeitarPedido = new javax.swing.JButton();
         bCancelar = new javax.swing.JButton();
-        bAtualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,20 +122,23 @@ public class PedidoAcessoAdmin extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelaPedidoAcesso);
 
         bAceitarPedido.setText("Aceitar Pedido");
+        bAceitarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAceitarPedidoActionPerformed(evt);
+            }
+        });
 
         bRejeitarPedido.setText("Rejeitar Pedido");
+        bRejeitarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRejeitarPedidoActionPerformed(evt);
+            }
+        });
 
         bCancelar.setText("Cancelar");
         bCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bCancelarActionPerformed(evt);
-            }
-        });
-
-        bAtualizar.setText("Atualizar");
-        bAtualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bAtualizarActionPerformed(evt);
             }
         });
 
@@ -130,13 +155,10 @@ public class PedidoAcessoAdmin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(bCancelar)
-                            .addComponent(bAtualizar))
+                        .addComponent(bCancelar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(bRejeitarPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                            .addComponent(bAceitarPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(bRejeitarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bAceitarPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(74, 74, 74))
         );
         layout.setVerticalGroup(
@@ -146,15 +168,13 @@ public class PedidoAcessoAdmin extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bAceitarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(23, 23, 23)
+                .addComponent(bAceitarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bRejeitarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
@@ -164,19 +184,22 @@ public class PedidoAcessoAdmin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_tabelaPedidoAcessoMouseClicked
 
-    private void bAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtualizarActionPerformed
-        modeloTabelaPedidoAcesso.fireTableDataChanged();
-    }//GEN-LAST:event_bAtualizarActionPerformed
-
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_bCancelarActionPerformed
+
+    private void bAceitarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceitarPedidoActionPerformed
+        aceitarPedido();
+    }//GEN-LAST:event_bAceitarPedidoActionPerformed
+
+    private void bRejeitarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRejeitarPedidoActionPerformed
+        rejeitarPedido();
+    }//GEN-LAST:event_bRejeitarPedidoActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAceitarPedido;
-    private javax.swing.JButton bAtualizar;
     private javax.swing.JButton bCancelar;
     private javax.swing.JButton bRejeitarPedido;
     private javax.swing.JLabel jLabel1;

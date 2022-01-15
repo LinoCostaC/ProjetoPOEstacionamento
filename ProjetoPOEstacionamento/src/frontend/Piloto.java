@@ -11,7 +11,7 @@ public class Piloto {
         System.out.println(String.format("Ficheiro de dados: %s.", ficheiroDados));
         Serializacao database = new Serializacao(ficheiroDados);
 
-        //Se o ficheiro de base de dados nao existir
+       // Se o ficheiro de base de dados nao existir
         if (! database.getFicheiro().exists()) {
             //Cria uma instancia do sistema
             aplicacao = new Aplicacao();

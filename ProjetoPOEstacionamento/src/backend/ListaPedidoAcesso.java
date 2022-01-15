@@ -81,6 +81,8 @@ public class ListaPedidoAcesso implements Serializable {
         }
         return somaTotal;
     }
+
+    
 }
 
 

@@ -56,9 +56,6 @@ public class Aplicacao implements Serializable {
     public void setListaPedidoAcesso(ListaPedidoAcesso listaPedidoAcesso) {
         this.listaPedidoAcesso = listaPedidoAcesso;
     }
-    
-    
-    
 
     //Autenticar utilizador 
     public boolean autenticarUser(String username, String password) {
@@ -79,13 +76,13 @@ public class Aplicacao implements Serializable {
         listaViatura.adicionarViatura(new Viatura("47-HV-95","Renault", "Megane", "Gasóleo"));
         listaUtilizador.adicionar(new Utente("utente1","utente1","Joao","968574125"));
         listaViatura.adicionarViatura(new Viatura("24-PV-38","BMW","i3","Gasolina"));
-        listaParque.adicionarParque(new Parque("P1",50,30));
         
+       
                 
         Utente utente= (Utente) listaUtilizador.getUtente("utente");
         Viatura viatura=(Viatura) listaViatura.getViatura("47-HV-95");
         utente.setViaturaUtente(viatura);
-        
+       
         Utente utente1= (Utente) listaUtilizador.getUtente("utente1");
         Viatura viatura1= (Viatura) listaViatura.getViatura("24-PV-38");
         utente1.setViaturaUtente(viatura1);
