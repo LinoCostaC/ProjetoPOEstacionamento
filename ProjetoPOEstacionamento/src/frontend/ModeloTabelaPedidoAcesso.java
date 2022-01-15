@@ -6,7 +6,6 @@ import javax.swing.table.AbstractTableModel;
 
 
 public class ModeloTabelaPedidoAcesso extends AbstractTableModel {
-    private ModeloTabelaPedidoAcesso modeloTabela;
     private ListaPedidoAcesso pedidoAcesso;
     private static String[] colunasTabela = new String[]{
         "Estado", "Parque", "Utente"
@@ -18,7 +17,7 @@ public class ModeloTabelaPedidoAcesso extends AbstractTableModel {
 
     public void atualizar() {
         //Informa o modelo que foram efetuadas alteracoes, o modelo informa a tabela e os dados são redesenhados
-        modeloTabela.fireTableDataChanged();
+        this.fireTableDataChanged();
     }
 
     @Override
@@ -43,13 +42,10 @@ public class ModeloTabelaPedidoAcesso extends AbstractTableModel {
         switch (columnIndex) {
             case 0:
                 return pa.getEstado();
-
             case 1:
-                return pa.getPedidoParque();
-                
+                return pa.getPedidoParque();           
             case 2:
-                return pa.getPedidoUtente();
-                
+                return pa.getPedidoUtente();       
         }
         return null;
     }

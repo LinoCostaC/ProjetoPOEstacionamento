@@ -72,7 +72,7 @@ public class SegurancaGUI extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         bViaturaSeguranca = new javax.swing.JButton();
-        bPedidoAcessoSeguranca = new javax.swing.JButton();
+        bInformacaoParque = new javax.swing.JButton();
         bTerminar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -93,10 +93,10 @@ public class SegurancaGUI extends javax.swing.JFrame {
             }
         });
 
-        bPedidoAcessoSeguranca.setText("Parques");
-        bPedidoAcessoSeguranca.addActionListener(new java.awt.event.ActionListener() {
+        bInformacaoParque.setText("Parques");
+        bInformacaoParque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bPedidoAcessoSegurancaActionPerformed(evt);
+                bInformacaoParqueActionPerformed(evt);
             }
         });
 
@@ -128,7 +128,7 @@ public class SegurancaGUI extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(bTerminar, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                                .addComponent(bPedidoAcessoSeguranca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(bInformacaoParque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -145,7 +145,7 @@ public class SegurancaGUI extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bPedidoAcessoSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bInformacaoParque, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bViaturaSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                 .addComponent(bTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -160,10 +160,10 @@ public class SegurancaGUI extends javax.swing.JFrame {
         terminar();
     }//GEN-LAST:event_bTerminarActionPerformed
 
-    private void bPedidoAcessoSegurancaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPedidoAcessoSegurancaActionPerformed
+    private void bInformacaoParqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInformacaoParqueActionPerformed
         ListaDeParques listaParques = new ListaDeParques(aplicacao, serializacao);
         listaParques.setVisible(true);
-    }//GEN-LAST:event_bPedidoAcessoSegurancaActionPerformed
+    }//GEN-LAST:event_bInformacaoParqueActionPerformed
 
     private void bViaturaSegurancaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bViaturaSegurancaActionPerformed
         EntradaSaidaViatura listaEntradaSaida = new EntradaSaidaViatura(aplicacao, serializacao);
@@ -172,7 +172,7 @@ public class SegurancaGUI extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bPedidoAcessoSeguranca;
+    private javax.swing.JButton bInformacaoParque;
     private javax.swing.JButton bTerminar;
     private javax.swing.JButton bViaturaSeguranca;
     private javax.swing.JLabel jLabel1;

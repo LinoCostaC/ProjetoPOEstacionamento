@@ -1,109 +1,85 @@
-
 package frontend;
-
 
 import BaseDeDados.Serializacao;
 import backend.Seguranca;
 import javax.swing.JOptionPane;
-import javax.swing.table.AbstractTableModel;
 import backend.ListaUtilizador;
 import backend.Aplicacao;
-import backend.ListaPedidoAcesso;
-import backend.PedidoAcesso;
 import backend.Utilizador;
 
-
-
-
 public class ListaSegurancas extends javax.swing.JFrame {
+
     private Aplicacao aplicacao;
     private Serializacao database;
     private ListaUtilizador listaSegurancas;
     private Seguranca seguranca;
     private Utilizador utilizador;
-    private ModeloTabelaListaSeguranca modeloTabelaListaSeguranca;
-    
+    private ModeloTabelaListaSeguranca modeloTabela;
+
     public ListaSegurancas(Aplicacao aplicacao, Serializacao database) {
         initComponents();
         this.database = database;
         this.aplicacao = aplicacao;
-        
+
         setTitle("Informação de Seguranças");
-        
+
         //Não permite o redimensionamento da janela
         this.setResizable(false);
-        
+
         //Mostra a centralização da janela
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        
-        modeloTabelaListaSeguranca = new ModeloTabelaListaSeguranca(aplicacao.getListaUtilizador().listaSegurancas());
-        tabelaSeguranca.setModel(modeloTabelaListaSeguranca);
-        
-        
-    }   
-    
-      private void registar() {
-          
+
+        this.modeloTabela = new ModeloTabelaListaSeguranca(aplicacao.getListaUtilizador().listaSegurancas());
+        this.tabelaSeguranca.setModel(this.modeloTabela);
+
+    }
+
+    private void registar() {
+
         if (txtUsernameSeguranca.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Introduza o seu Username", "Username EM FALTA", JOptionPane.WARNING_MESSAGE);
             txtUsernameSeguranca.requestFocus();
         }
-       
+
         if (txtPasswordSeguranca.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Introduza a sua Password!", "PASSWORD EM FALTA", JOptionPane.WARNING_MESSAGE);
             txtPasswordSeguranca.requestFocus();
         }
         if (txtNomeSeguranca.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Introduza o seu Nome!", "NOME EM FALTA", JOptionPane.WARNING_MESSAGE);
-            txtNomeSeguranca.requestFocus();  
+            txtNomeSeguranca.requestFocus();
         }
-        
-        
+
         String nome = txtNomeSeguranca.getText();
         String username = txtUsernameSeguranca.getText();
         String password = txtPasswordSeguranca.getText();
-        
 
-        aplicacao.getListaUtilizador().adicionar(new Seguranca(username,password,nome));
-        
-    } 
-      
-      public void removerSeguranca() {
+        aplicacao.getListaUtilizador().adicionar(new Seguranca(username, password, nome));
+        this.modeloTabela.atualizar(aplicacao.getListaUtilizador().listaSegurancas());
+    }
+       
+    public void removerSeguranca() {
         int rowIndex = tabelaSeguranca.getSelectedRow();
         //Se nenhum registo selecionado, nao é possivel editar
         if (rowIndex == -1) {
             return;
         }
 
-        String username = (String) modeloTabelaListaSeguranca.getValueAt(rowIndex, 1);
-        
-        
+        String username = (String) modeloTabela.getValueAt(rowIndex, 1);
+
         seguranca = aplicacao.getListaUtilizador().getSeguranca(username);
-        
+
         if (JOptionPane.showConfirmDialog(null,
                 "Deseja eliminar o Segurança?",
                 "Eliminado",
                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             seguranca = aplicacao.getListaUtilizador().getSeguranca(username);
             aplicacao.getListaUtilizador().remover(seguranca);
-            }
-        modeloTabelaListaSeguranca.fireTableDataChanged();
         }
-    
-    
-    
-    
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        this.modeloTabela.atualizar(aplicacao.getListaUtilizador().listaSegurancas());
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -111,7 +87,6 @@ public class ListaSegurancas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaSeguranca = new javax.swing.JTable();
         bRemover = new javax.swing.JButton();
-        bAtualizar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         bCancelar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -136,24 +111,12 @@ public class ListaSegurancas extends javax.swing.JFrame {
                 "Username", "Password", "Nome"
             }
         ));
-        tabelaSeguranca.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelaSegurancaMouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(tabelaSeguranca);
 
         bRemover.setText("Remover");
         bRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bRemoverActionPerformed(evt);
-            }
-        });
-
-        bAtualizar.setText("Atualizar");
-        bAtualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bAtualizarActionPerformed(evt);
             }
         });
 
@@ -201,9 +164,7 @@ public class ListaSegurancas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(bRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(105, 105, 105)
-                        .addComponent(bAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(136, 136, 136)
+                        .addGap(334, 334, 334)
                         .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,7 +191,7 @@ public class ListaSegurancas extends javax.swing.JFrame {
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtPasswordSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 13, Short.MAX_VALUE)))
+                        .addGap(0, 14, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -265,9 +226,7 @@ public class ListaSegurancas extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(bRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(bAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(bRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(21, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -279,31 +238,20 @@ public class ListaSegurancas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tabelaSegurancaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaSegurancaMouseClicked
-
-    }//GEN-LAST:event_tabelaSegurancaMouseClicked
-
-    private void bAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtualizarActionPerformed
-        modeloTabelaListaSeguranca.fireTableDataChanged();
-    }//GEN-LAST:event_bAtualizarActionPerformed
-
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_bCancelarActionPerformed
 
     private void bRegistarSegurancaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistarSegurancaActionPerformed
         registar();
-        this.dispose();
     }//GEN-LAST:event_bRegistarSegurancaActionPerformed
 
     private void bRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRemoverActionPerformed
         removerSeguranca();
     }//GEN-LAST:event_bRemoverActionPerformed
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bAtualizar;
     private javax.swing.JButton bCancelar;
     private javax.swing.JButton bRegistarSeguranca;
     private javax.swing.JButton bRemover;

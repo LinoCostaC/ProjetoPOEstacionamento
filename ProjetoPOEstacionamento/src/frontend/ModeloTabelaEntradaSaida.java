@@ -8,7 +8,6 @@ import javax.swing.table.AbstractTableModel;
 
 
 public class ModeloTabelaEntradaSaida extends AbstractTableModel {
-    private ModeloTabelaEntradaSaida modeloTabela;
     private ListaEntradaSaida entradaSaida;
     private static String[] colunasTabela = new String[]{
         "Data Entrada", "Data Saída", "Viatura", "Parque"
@@ -20,7 +19,7 @@ public class ModeloTabelaEntradaSaida extends AbstractTableModel {
 
     public void atualizar() {
         //Informa o modelo que foram efetuadas alteracoes, o modelo informa a tabela e os dados são redesenhados
-        modeloTabela.fireTableDataChanged();
+        this.fireTableDataChanged();
     }
 
     @Override

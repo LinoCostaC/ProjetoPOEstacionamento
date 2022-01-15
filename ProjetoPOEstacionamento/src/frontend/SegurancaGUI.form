@@ -36,7 +36,7 @@
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="bTerminar" pref="99" max="32767" attributes="0"/>
-                              <Component id="bPedidoAcessoSeguranca" max="32767" attributes="0"/>
+                              <Component id="bInformacaoParque" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -61,7 +61,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="bPedidoAcessoSeguranca" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="bInformacaoParque" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="bViaturaSeguranca" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="94" max="32767" attributes="0"/>
@@ -100,12 +100,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bViaturaSegurancaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="bPedidoAcessoSeguranca">
+    <Component class="javax.swing.JButton" name="bInformacaoParque">
       <Properties>
         <Property name="text" type="java.lang.String" value="Parques"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bPedidoAcessoSegurancaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bInformacaoParqueActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bTerminar">

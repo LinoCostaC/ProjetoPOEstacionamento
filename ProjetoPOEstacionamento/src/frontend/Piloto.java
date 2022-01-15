@@ -1,8 +1,6 @@
 
 package frontend;
-import backend.Administrador;
 import backend.Aplicacao;
-import backend.Utilizador;
 import BaseDeDados.Serializacao;
 
 public class Piloto {

@@ -1,17 +1,12 @@
-
 package frontend;
+
 import backend.Aplicacao;
-import backend.Seguranca;
-import backend.ListaUtilizador;
 import backend.Utilizador;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
-
 public class ModeloTabelaListaSeguranca extends AbstractTableModel {
-    private ModeloTabelaListaSeguranca modeloTabela;
     private ArrayList<Utilizador> listaSeguranca;
-    private Aplicacao aplicacao;
     private static String[] colunasTabela = new String[]{
         "Username", "Pasword", "Nome"
     };
@@ -19,9 +14,9 @@ public class ModeloTabelaListaSeguranca extends AbstractTableModel {
     public ModeloTabelaListaSeguranca(ArrayList<Utilizador> seguranca) {
         this.listaSeguranca = seguranca;
     }
-
-    public void atualizar() {
-        modeloTabela.fireTableDataChanged();
+    public void atualizar(ArrayList<Utilizador> lista) {
+        this.listaSeguranca = lista;
+        this.fireTableDataChanged();
     }
 
     @Override
@@ -33,7 +28,7 @@ public class ModeloTabelaListaSeguranca extends AbstractTableModel {
     public int getColumnCount() {
         return colunasTabela.length;
     }
-    
+
     @Override
     public String getColumnName(int column) {
         return colunasTabela[column];
@@ -41,22 +36,14 @@ public class ModeloTabelaListaSeguranca extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        
-
         switch (columnIndex) {
             case 0:
                 return listaSeguranca.get(rowIndex).getUsername();
-
             case 1:
                 return listaSeguranca.get(rowIndex).getPassword();
-                
             case 2:
                 return listaSeguranca.get(rowIndex).getnome();
-                
         }
         return null;
     }
-    
-
 }
-//ahdlkashjdljasjd
