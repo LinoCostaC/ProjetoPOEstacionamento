@@ -43,9 +43,9 @@ public class ModeloTabelaPedidoAcesso extends AbstractTableModel {
             case 0:
                 return pa.getEstado();
             case 1:
-                return pa.getPedidoParque();           
+                return pa.getPedidoParque().getNomeParque();           
             case 2:
-                return pa.getPedidoUtente();       
+                return pa.getPedidoUtente().getNomeUtente();       
         }
         return null;
     }
