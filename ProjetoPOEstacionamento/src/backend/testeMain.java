@@ -5,7 +5,16 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 
+/**
+ *
+ * @author LC
+ */
 public class testeMain {
+
+    /**
+     *
+     * @param args
+     */
     public static void main(String [] args){
         Viatura v= new Viatura();
         v.setCombustivel("Gasolina");

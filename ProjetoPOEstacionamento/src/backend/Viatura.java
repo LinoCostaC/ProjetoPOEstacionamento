@@ -4,6 +4,10 @@ package backend;
 import java.util.Objects;
 import java.io.Serializable;
 
+/**
+ *
+ * @author LC
+ */
 public class Viatura implements Serializable {
     
 //variaveis de instancia
@@ -13,10 +17,21 @@ public class Viatura implements Serializable {
     private String combustivel;
     
 //construtores
+
+    /**
+     *
+     */
     public Viatura() {
     
     }
 
+    /**
+     *
+     * @param matricula
+     * @param marca
+     * @param modelo
+     * @param combustivel
+     */
     public Viatura(String matricula, String marca, String modelo, String combustivel) {
         this.matricula = matricula;
         this.marca = marca;
@@ -25,34 +40,67 @@ public class Viatura implements Serializable {
     }
     
 //getters e setters
+
+    /**
+     *
+     * @return
+     */
     public String getMatricula() {
         return matricula;
     }
 
+    /**
+     *
+     * @param matricula
+     */
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
     
+    /**
+     *
+     * @return
+     */
     public String getMarca() {
         return marca;
     }
 
+    /**
+     *
+     * @param marca
+     */
     public void setMarca(String marca) {
         this.marca = marca;
     }
    
+    /**
+     *
+     * @return
+     */
     public String getModelo() {
         return modelo;
     }
 
+    /**
+     *
+     * @param modelo
+     */
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
     
+    /**
+     *
+     * @return
+     */
     public String getCombustivel() {
         return combustivel;
     }
 
+    /**
+     *
+     * @param combustivel
+     */
     public void setCombustivel(String combustivel) {
         this.combustivel = combustivel;
     }
