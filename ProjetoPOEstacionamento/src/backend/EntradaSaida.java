@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 public class EntradaSaida implements Serializable {
-    // variaveis de instacia
+    // variaveis de instancia
     private LocalDateTime dataHoraEntrada;
     private LocalDateTime dataHoraSaida;
     private Viatura viatura;

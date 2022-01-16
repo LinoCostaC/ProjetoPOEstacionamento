@@ -20,8 +20,7 @@ public class Parque implements Serializable {
         this.preco = preco;        
     }
 
-//get e set de nome
-    
+//getters e setters
     public String getNomeParque() {
         return nomeParque;
     }
@@ -30,8 +29,6 @@ public class Parque implements Serializable {
         this.nomeParque = nome;
     }
 
-//get e set numeroLugares
-    
     public int getNumeroLugares() {
         return numeroLugares;
     }
