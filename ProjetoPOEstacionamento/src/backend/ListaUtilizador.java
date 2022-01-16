@@ -52,10 +52,7 @@ public class ListaUtilizador implements Serializable {
     public int size() {
         return listaUtilizador.size();
     }
-    
-          
-            
-    
+     
     //Método para retornar lista de Seguranças
     public ArrayList<Utilizador> listaSegurancas(){
         ArrayList<Utilizador> listaSeguranca = new ArrayList<Utilizador>();
@@ -66,9 +63,7 @@ public class ListaUtilizador implements Serializable {
         }
         return listaSeguranca;
 }
-           
-            
-            
+         
 }    
     
 

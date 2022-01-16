@@ -3,14 +3,10 @@ package backend;
 
 import java.io.Serializable;
 
-
-
-
 public class Seguranca extends Utilizador implements Serializable {
     private ListaViatura listaViatura;
     
-    
-
+ 
     public Seguranca(String username, String password, String nome) {
         super(username, password, nome);
     }

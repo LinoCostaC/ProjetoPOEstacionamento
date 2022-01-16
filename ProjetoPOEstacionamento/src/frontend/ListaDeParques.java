@@ -3,26 +3,21 @@ package frontend;
 
 
 import BaseDeDados.Serializacao;
-import javax.swing.JOptionPane;
-import javax.swing.table.AbstractTableModel;
 import backend.Aplicacao;
 import backend.ListaParque;
 import backend.Parque;
 
 
-
-
-
 public class ListaDeParques extends javax.swing.JFrame {
     private Aplicacao aplicacao;
-    private Serializacao database;
+    private Serializacao serializacao;
     private ListaParque listaParque;
     private Parque parque;
     private ModeloTabelaListaParque modeloTabela;
     
-    public ListaDeParques(Aplicacao aplicacao, Serializacao database) {
+    public ListaDeParques(Aplicacao aplicacao, Serializacao serializacao) {
         initComponents();
-        this.database = database;
+        this.serializacao = serializacao;
         this.aplicacao = aplicacao;
         
         setTitle("Informação de Parques");
@@ -38,14 +33,6 @@ public class ListaDeParques extends javax.swing.JFrame {
         tabelaParque.setModel(modeloTabela);  
     }    
    
-     private void guardar() {
-        database.guardar(aplicacao);
-    }
-    
-    private void editar() {
-        int rowIndex = tabelaParque.getSelectedRow();
-          
-    }
 
     
     @SuppressWarnings("unchecked")

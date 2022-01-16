@@ -1,6 +1,10 @@
 
 package backend;
 
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+
 public class testeMain {
     public static void main(String [] args){
         Viatura v= new Viatura();
@@ -22,6 +26,13 @@ public class testeMain {
         ListaEntradaSaida listaEntradaSaida = new ListaEntradaSaida();
         listaEntradaSaida.adicionarEntradaSaida(v1, p1);
         
+        EntradaSaida es = new EntradaSaida();
+        es.setDataHoraEntrada(LocalDateTime.now());
+        System.out.println(es.getDataHoraEntrada());
+        
+        p.setNumeroLugares(3);
+        System.out.println(p.getNumeroLugares());
+        System.out.println(p.getNumeroLugares()-1);
         
         
         System.out.println(listaViatura.getListaViatura());

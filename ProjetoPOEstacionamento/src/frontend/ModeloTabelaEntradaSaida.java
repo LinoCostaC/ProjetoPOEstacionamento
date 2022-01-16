@@ -1,4 +1,3 @@
-
 package frontend;
 
 
@@ -49,10 +48,10 @@ public class ModeloTabelaEntradaSaida extends AbstractTableModel {
                 return es.getDataHoraSaida();
                 
             case 2:
-                return es.getViatura();
+                return es.getViatura().getMatricula();
             
             case 3:
-                return es.getParque();
+                return es.getParque().getNomeParque();
                
         }
         return null;

@@ -17,7 +17,7 @@ import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 public class AdminGUI_Teste extends javax.swing.JFrame {
 
     private Aplicacao aplicacao;
-    private Serializacao database;
+    private Serializacao serializacao;
     private ListaUtilizador listaUtilizador;
     private Parque parque;
     private Utilizador utilizador;
@@ -29,7 +29,7 @@ public class AdminGUI_Teste extends javax.swing.JFrame {
     
     public AdminGUI_Teste(Aplicacao aplicacao, Serializacao database) {
         initComponents();
-        this.database = database;
+        this.serializacao = database;
         this.aplicacao = aplicacao;
         this.listaViatura = aplicacao.getListaViatura();
         this.listaPedidoAcesso = aplicacao.getListaPedidoAcesso();
@@ -45,10 +45,6 @@ public class AdminGUI_Teste extends javax.swing.JFrame {
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         
     }    
-
-     private void guardar() {
-        database.guardar(aplicacao);
-    }
 
     private void terminar() {
         if (JOptionPane.showConfirmDialog(null,
@@ -91,6 +87,7 @@ public class AdminGUI_Teste extends javax.swing.JFrame {
         bTotalAngariadoAcessoCondicionado = new javax.swing.JButton();
         bTotalAngariadoLugarAssegurado = new javax.swing.JButton();
         bParques = new javax.swing.JButton();
+        bMudarUtilizador = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -298,6 +295,16 @@ public class AdminGUI_Teste extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        bMudarUtilizador.setBackground(new java.awt.Color(255, 255, 255));
+        bMudarUtilizador.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        bMudarUtilizador.setForeground(new java.awt.Color(255, 51, 51));
+        bMudarUtilizador.setText("Mudar Utilizador");
+        bMudarUtilizador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bMudarUtilizadorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -335,16 +342,23 @@ public class AdminGUI_Teste extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bMudarUtilizador, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
                 .addComponent(botaoTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
+                .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bMudarUtilizador, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaoTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -374,7 +388,7 @@ public class AdminGUI_Teste extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoTerminarActionPerformed
-        database.guardar(aplicacao);
+        this.serializacao.guardar(aplicacao);
         terminar();
     }//GEN-LAST:event_botaoTerminarActionPerformed
 
@@ -387,18 +401,18 @@ public class AdminGUI_Teste extends javax.swing.JFrame {
     }//GEN-LAST:event_bApagarActionPerformed
 
     private void bParquesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bParquesActionPerformed
-        RegistoParquesAdmin registoParques = new RegistoParquesAdmin(aplicacao, database);
+        RegistoParquesAdmin registoParques = new RegistoParquesAdmin(aplicacao, serializacao);
         registoParques.setVisible(true);
     }//GEN-LAST:event_bParquesActionPerformed
 
     private void bSegurancasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSegurancasActionPerformed
-        ListaSegurancas janelaListaSegurancas = new ListaSegurancas(aplicacao, database);
+        ListaSegurancas janelaListaSegurancas = new ListaSegurancas(aplicacao, serializacao);
         janelaListaSegurancas.setVisible(true);
         
     }//GEN-LAST:event_bSegurancasActionPerformed
 
     private void bPedidosAcessoAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPedidosAcessoAdminActionPerformed
-        PedidoAcessoAdmin pedidoAcessoAdmin = new PedidoAcessoAdmin(aplicacao, database);
+        PedidoAcessoAdmin pedidoAcessoAdmin = new PedidoAcessoAdmin(aplicacao, serializacao);
         pedidoAcessoAdmin.setVisible(true);
     }//GEN-LAST:event_bPedidosAcessoAdminActionPerformed
 
@@ -411,8 +425,7 @@ public class AdminGUI_Teste extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCombustivelAdminActionPerformed
 
     private void txtTotalAngariadoParqueLivreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalAngariadoParqueLivreActionPerformed
-        String totalAngariadoPL = String.valueOf(listaPedidoAcesso.calcularValorParqueLivre());
-        txtTotalAngariadoParqueLivre.setText(totalAngariadoPL);
+        
     }//GEN-LAST:event_txtTotalAngariadoParqueLivreActionPerformed
 
     private void bVerPercentagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerPercentagemActionPerformed
@@ -431,31 +444,43 @@ public class AdminGUI_Teste extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTotalAngariadoActionPerformed
 
     private void txtTotalAngariadoAcessoCondicionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalAngariadoAcessoCondicionadoActionPerformed
-        String totalAngariadoAC = String.valueOf(listaPedidoAcesso.calcularValorParqueCondicionado());
-        txtTotalAngariadoAcessoCondicionado.setText(totalAngariadoAC);
+        
     }//GEN-LAST:event_txtTotalAngariadoAcessoCondicionadoActionPerformed
 
     private void txtTotalAngariadoAcessoSeguradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalAngariadoAcessoSeguradoActionPerformed
-        String totalAngariadoLA = String.valueOf(listaPedidoAcesso.calcularValorLugarAssegurado());
-        txtTotalAngariadoAcessoSegurado.setText(totalAngariadoLA);
+        
     }//GEN-LAST:event_txtTotalAngariadoAcessoSeguradoActionPerformed
 
     private void bVerTotalAngariadoParqueLivreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerTotalAngariadoParqueLivreActionPerformed
-        // TODO add your handling code here:
+        String totalAngariadoPL = String.valueOf(listaPedidoAcesso.calcularValorParqueLivre());
+        txtTotalAngariadoParqueLivre.setText(totalAngariadoPL);
     }//GEN-LAST:event_bVerTotalAngariadoParqueLivreActionPerformed
 
     private void bTotalAngariadoAcessoCondicionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTotalAngariadoAcessoCondicionadoActionPerformed
-        // TODO add your handling code here:
+        String totalAngariadoAC = String.valueOf(listaPedidoAcesso.calcularValorParqueCondicionado());
+        txtTotalAngariadoAcessoCondicionado.setText(totalAngariadoAC);
     }//GEN-LAST:event_bTotalAngariadoAcessoCondicionadoActionPerformed
 
     private void bTotalAngariadoLugarAsseguradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTotalAngariadoLugarAsseguradoActionPerformed
-        // TODO add your handling code here:
+        String totalAngariadoLA = String.valueOf(listaPedidoAcesso.calcularValorLugarAssegurado());
+        txtTotalAngariadoAcessoSegurado.setText(totalAngariadoLA);
     }//GEN-LAST:event_bTotalAngariadoLugarAsseguradoActionPerformed
+
+    private void bMudarUtilizadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMudarUtilizadorActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "Deseja realmente mudar de utilizador?", "A mudar...", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            this.serializacao.guardar(aplicacao);
+            dispose();
+            Login jl = new Login(aplicacao, serializacao);
+            jl.setLocationRelativeTo(null);
+            jl.setVisible(true);
+        }
+    }//GEN-LAST:event_bMudarUtilizadorActionPerformed
 
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bMudarUtilizador;
     private javax.swing.JButton bParques;
     private javax.swing.JButton bPedidosAcessoAdmin;
     private javax.swing.JButton bSegurancas;

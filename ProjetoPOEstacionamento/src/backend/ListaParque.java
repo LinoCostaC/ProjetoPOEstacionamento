@@ -4,7 +4,6 @@ package backend;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-
 //Lista de Parques
 public class ListaParque implements Serializable {
     private ArrayList<Parque> listaParque;
@@ -21,7 +20,6 @@ public class ListaParque implements Serializable {
     public void setListaparque(ArrayList<Parque> listaParque) {
         this.listaParque = listaParque;
     }
-    
     
     //Obter todos os parques
     public int getTotalParques() {
@@ -44,5 +42,6 @@ public class ListaParque implements Serializable {
     public int size() {
         return listaParque.size();
 }
+    
    
 }

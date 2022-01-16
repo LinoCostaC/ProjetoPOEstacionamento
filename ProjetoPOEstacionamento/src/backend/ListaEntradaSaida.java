@@ -1,5 +1,3 @@
-
-
 package backend;
 
 import java.io.Serializable;
@@ -23,7 +21,6 @@ public class ListaEntradaSaida implements Serializable  {
     public void setListaEntradaSaida(ArrayList<EntradaSaida> listaEntradaSaida) {
         this.listaEntradaSaida = listaEntradaSaida;
     }
-    
     
     //Obter todos as entradas e saidas
     public int getTotalEntradaSaida() {
@@ -52,8 +49,7 @@ public class ListaEntradaSaida implements Serializable  {
                 es.setDataHoraSaida(LocalDateTime.now());
                 break;
             }
-        }
-           
+        }         
 }
   
     //Obter lista de viaturas que estão dentro das instalações
@@ -83,7 +79,6 @@ public class ListaEntradaSaida implements Serializable  {
             return true;
 
         }
-
 }
 }
       

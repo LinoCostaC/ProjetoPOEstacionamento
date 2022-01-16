@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package frontend;
 
 import BaseDeDados.Serializacao;
@@ -11,10 +6,6 @@ import backend.Parque;
 import backend.PedidoAcesso;
 import backend.Utente;
 
-/**
- *
- * @author alexv
- */
 public class UtentePedidoAcesso extends javax.swing.JFrame {
     private Aplicacao aplicacao;
     private Serializacao serializacao;
@@ -22,10 +13,10 @@ public class UtentePedidoAcesso extends javax.swing.JFrame {
 
 
     
-   public UtentePedidoAcesso(Aplicacao apli, Serializacao database) {
+   public UtentePedidoAcesso(Aplicacao apli, Serializacao serializacao) {
         initComponents();
         this.aplicacao = apli;
-        this.serializacao = database;
+        this.serializacao = serializacao;
         ut= (Utente) this.aplicacao.getUtilizadorLigado();
         System.out.println(ut.toString());
         if(ut.getPedidoAcesso() != null){

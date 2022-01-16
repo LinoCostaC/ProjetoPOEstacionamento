@@ -10,15 +10,15 @@ import backend.Utilizador;
 public class ListaSegurancas extends javax.swing.JFrame {
 
     private Aplicacao aplicacao;
-    private Serializacao database;
+    private Serializacao serializacao;
     private ListaUtilizador listaSegurancas;
     private Seguranca seguranca;
     private Utilizador utilizador;
     private ModeloTabelaListaSeguranca modeloTabela;
 
-    public ListaSegurancas(Aplicacao aplicacao, Serializacao database) {
+    public ListaSegurancas(Aplicacao aplicacao, Serializacao serializacao) {
         initComponents();
-        this.database = database;
+        this.serializacao = serializacao;
         this.aplicacao = aplicacao;
 
         setTitle("Informação de Seguranças");

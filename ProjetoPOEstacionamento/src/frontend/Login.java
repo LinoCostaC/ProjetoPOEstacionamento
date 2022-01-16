@@ -1,27 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package frontend;
 
 import BaseDeDados.Serializacao;
-import backend.ListaUtilizador;
 import backend.Administrador;
 import backend.Aplicacao;
-import backend.ListaParque;
-import backend.Parque;
 import backend.Seguranca;
 import backend.Utente;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import backend.PedidoAcesso;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 public class Login extends javax.swing.JFrame {
     private Aplicacao aplicacao;
-    private Serializacao database;
+    private Serializacao serializacao;
     private String usern; 
     private String showusern; 
     private String passw;
@@ -29,10 +20,10 @@ public class Login extends javax.swing.JFrame {
     private PedidoAcesso pedidoacesso;
     
      
-     public Login(Aplicacao apli ,Serializacao database) {
+     public Login(Aplicacao apli ,Serializacao serializacao) {
         initComponents();
         this.aplicacao = apli;
-        this.database = database;
+        this.serializacao = serializacao;
          //Para manter o dimensionamento da janela
          this.setResizable(false);
          //Mostrar a janela centralizada
@@ -66,19 +57,19 @@ public class Login extends javax.swing.JFrame {
         }else{
             aplicacao.autenticarUser(showusern, showpassw);
             if (aplicacao.getUtilizadorLigado() instanceof Utente) {
-                UtenteGUI principal= new UtenteGUI(aplicacao,database,pedidoacesso);
+                UtenteGUI principal= new UtenteGUI(aplicacao,serializacao,pedidoacesso);
                 principal.setVisible(true);
             }
             
             if (aplicacao.getUtilizadorLigado() instanceof Administrador) {
                 
-                AdminGUI_Teste principal = new AdminGUI_Teste(aplicacao,database);
+                AdminGUI_Teste principal = new AdminGUI_Teste(aplicacao,serializacao);
                 principal.setVisible(true);
             }
             
             if (aplicacao.getUtilizadorLigado() instanceof Seguranca) {
                 
-                SegurancaGUI principal= new SegurancaGUI(aplicacao,database);
+                SegurancaGUI principal= new SegurancaGUI(aplicacao,serializacao);
                 principal.setVisible(true);
             }
             JOptionPane.showMessageDialog(null, "Utilizador logado com sucesso"); 
@@ -235,7 +226,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_cbMostrarPasswordActionPerformed
 
     private void jbRegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegistarActionPerformed
-    RegistarUser janela = new RegistarUser(aplicacao, database);
+    RegistarUser janela = new RegistarUser(aplicacao, serializacao);
     janela.setVisible(true);
     dispose();
     }//GEN-LAST:event_jbRegistarActionPerformed
@@ -245,7 +236,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_pfPasswordActionPerformed
 
     private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
-        database.guardar(aplicacao);
+        serializacao.guardar(aplicacao);
         terminar();
     }//GEN-LAST:event_jbSairActionPerformed
 

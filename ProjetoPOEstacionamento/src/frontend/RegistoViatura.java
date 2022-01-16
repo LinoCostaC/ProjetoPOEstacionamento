@@ -3,6 +3,7 @@ package frontend;
 
 import BaseDeDados.Serializacao;
 import backend.Aplicacao;
+import backend.Utente;
 import backend.Viatura;
 import javax.swing.JOptionPane;
 
@@ -13,11 +14,13 @@ public class RegistoViatura extends javax.swing.JFrame {
     private Serializacao serializacao;
     private int avancar=0;
     private String erro;
+    private Utente utenteligado;
 
     public RegistoViatura(Aplicacao aplicacao, Serializacao serializacao) {
         initComponents();
         this.aplicacao = aplicacao;
         this.serializacao = serializacao;
+        utenteligado=(Utente) aplicacao.getUtilizadorLigado();
 
     }
 
@@ -46,8 +49,9 @@ public class RegistoViatura extends javax.swing.JFrame {
         String modelo = txtModeloViatura.getText();
         String combustivel = txtCombustivelViatura.getText();
 
-        aplicacao.getListaViatura().adicionarViatura(new Viatura(matricula,marca,modelo,combustivel));
-        
+        Viatura v = new Viatura(matricula,marca,modelo,combustivel);
+        aplicacao.getListaViatura().adicionarViatura(v);
+        utenteligado.setViaturaUtente(v);
     }
     
         public void fechar() {
@@ -220,6 +224,7 @@ public class RegistoViatura extends javax.swing.JFrame {
     private void bRegistoViaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistoViaturaActionPerformed
         registar();
         this.dispose();
+        
     }//GEN-LAST:event_bRegistoViaturaActionPerformed
 
     

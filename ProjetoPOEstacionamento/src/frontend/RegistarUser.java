@@ -1,13 +1,9 @@
-
 package frontend;
-
-
 
 import backend.Aplicacao;
 import backend.Utente;
 import BaseDeDados.Serializacao;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 

@@ -4,15 +4,12 @@ import java.io.Serializable;
 
 import java.time.LocalDateTime;
 
-
-
 public class EntradaSaida implements Serializable {
     // variaveis de instacia
     private LocalDateTime dataHoraEntrada;
     private LocalDateTime dataHoraSaida;
     private Viatura viatura;
     private Parque parque;
-
 
     public EntradaSaida() {
     

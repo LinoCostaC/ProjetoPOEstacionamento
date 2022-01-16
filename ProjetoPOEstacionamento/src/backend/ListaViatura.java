@@ -26,8 +26,7 @@ public class ListaViatura implements Serializable {
     public void setListaViatura(ArrayList<Viatura> listaViatura) {
         this.listaViatura = listaViatura;
     }
-    
-    
+
     //Total de todas as viaturas
     public int getTotalViatura() {
         return listaViatura.size();
@@ -41,7 +40,8 @@ public class ListaViatura implements Serializable {
     public void adicionarViatura(Viatura viatura) {
         listaViatura.add(viatura);
     }
-
+    
+ 
     //Remover viatura da lista
     public void removerViatura(Viatura viatura) {
         listaViatura.remove(viatura);

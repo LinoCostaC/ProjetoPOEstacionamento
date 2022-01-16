@@ -1,4 +1,3 @@
-
 package frontend;
 
 import backend.ListaPedidoAcesso;
@@ -13,16 +12,16 @@ import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 public class PedidoAcessoAdmin extends javax.swing.JFrame {
 
     private Aplicacao aplicacao;
-    private Serializacao database;
+    private Serializacao serializacao;
     private ListaPedidoAcesso listaPedidoAcesso;
     private PedidoAcesso pedidoAcesso;
-    private ModeloTabelaPedidoAcesso modeloTabelaPedidoAcesso;
+    private ModeloTabelaPedidoAcesso modeloTabela;
     
     
     
-    public PedidoAcessoAdmin(Aplicacao aplicacao, Serializacao database) {
+    public PedidoAcessoAdmin(Aplicacao aplicacao, Serializacao serializacao) {
         initComponents();
-        this.database = database;
+        this.serializacao = serializacao;
         this.aplicacao = aplicacao;
         this.listaPedidoAcesso = aplicacao.getListaPedidoAcesso();
         
@@ -35,20 +34,10 @@ public class PedidoAcessoAdmin extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         
-        modeloTabelaPedidoAcesso = new ModeloTabelaPedidoAcesso(listaPedidoAcesso);
-        tabelaPedidoAcesso.setModel(modeloTabelaPedidoAcesso);
-        
-        
-    }    
-
-     private void guardar() {
-        database.guardar(aplicacao);
-    }
-    
-    private void editar() {
-        int rowIndex = tabelaPedidoAcesso.getSelectedRow();
-          
-    }
+        modeloTabela = new ModeloTabelaPedidoAcesso(listaPedidoAcesso);
+        tabelaPedidoAcesso.setModel(modeloTabela);
+   
+    }   
     
     private void aceitarPedido(){
         int rowIndex = tabelaPedidoAcesso.getSelectedRow();
@@ -63,7 +52,7 @@ public class PedidoAcessoAdmin extends javax.swing.JFrame {
          pa.setEstado(Estado.ATRIBUIDO);
          JOptionPane.showMessageDialog(this, "Pedido Atribuído!");
      }
-     this.modeloTabelaPedidoAcesso.fireTableDataChanged();
+     this.modeloTabela.fireTableDataChanged();
     }
     
     private void rejeitarPedido(){
@@ -79,7 +68,7 @@ public class PedidoAcessoAdmin extends javax.swing.JFrame {
          pa.setEstado(Estado.RECUSADO);
          JOptionPane.showMessageDialog(this, "Pedido Recusado!");
      }
-     this.modeloTabelaPedidoAcesso.fireTableDataChanged();
+     this.modeloTabela.fireTableDataChanged();
     }
 
     

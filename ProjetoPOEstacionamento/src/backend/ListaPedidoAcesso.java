@@ -33,6 +33,7 @@ public class ListaPedidoAcesso implements Serializable {
     public void adicionarPedidoAcesso(PedidoAcesso acesso) {
         listaAcesso.add(acesso);
     }
+ 
 
     //Remover um pedido de acesso da lista
     public void removerPedidoAcesso(PedidoAcesso acesso) {

@@ -7,15 +7,14 @@ import java.io.Serializable;
 public class Viatura implements Serializable {
     
 //variaveis de instancia
-    
     private String matricula;
     private String marca;
     private String modelo;
     private String combustivel;
     
 //construtores
-    
     public Viatura() {
+    
     }
 
     public Viatura(String matricula, String marca, String modelo, String combustivel) {
@@ -25,8 +24,7 @@ public class Viatura implements Serializable {
         this.combustivel = combustivel;
     }
     
-//get e set de matricula
-    
+//getters e setters
     public String getMatricula() {
         return matricula;
     }
@@ -35,8 +33,6 @@ public class Viatura implements Serializable {
         this.matricula = matricula;
     }
     
-//get e set de marca
-    
     public String getMarca() {
         return marca;
     }
@@ -44,9 +40,7 @@ public class Viatura implements Serializable {
     public void setMarca(String marca) {
         this.marca = marca;
     }
-    
-//get e set de modelo
-    
+   
     public String getModelo() {
         return modelo;
     }
@@ -54,8 +48,6 @@ public class Viatura implements Serializable {
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
-        
-//get e set de combustivel
     
     public String getCombustivel() {
         return combustivel;

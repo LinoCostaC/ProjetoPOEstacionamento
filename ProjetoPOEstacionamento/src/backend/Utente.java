@@ -3,7 +3,6 @@ package backend;
 
 import java.io.Serializable;
 
-
 public class Utente extends Utilizador implements Serializable {
     //Variáveis
     private String contactoTelefonico;

@@ -9,8 +9,8 @@ public class Parque implements Serializable {
     private String nomeParque;
     private int numeroLugares;
     private double preco; 
-//construtores
-    
+
+//construtores    
     public Parque() {
     }
 
@@ -20,7 +20,6 @@ public class Parque implements Serializable {
         this.preco = preco;        
     }
 
-    
 //get e set de nome
     
     public String getNomeParque() {
@@ -49,8 +48,6 @@ public class Parque implements Serializable {
         this.preco = preco;
     }
     
-    
-
     
     //Método ToString
     @Override

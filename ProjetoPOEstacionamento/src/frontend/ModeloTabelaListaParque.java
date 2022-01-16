@@ -1,4 +1,3 @@
-
 package frontend;
 
 
@@ -53,7 +52,5 @@ public class ModeloTabelaListaParque extends AbstractTableModel {
         }
         return null;
     }
-    
-     
 
 }
